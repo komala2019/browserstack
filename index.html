@@ -1260,15 +1260,13 @@
         <div class="sidebar-title">Strategy Outline</div>
         <ul class="toc-list">
           <li class="toc-item active" id="toc-intro"><a href="#doc-title">Title & Overview</a></li>
-          <li class="toc-item" id="toc-hook"><a href="#sec-hook">1. The Invisible Wall</a></li>
-          <li class="toc-item" id="toc-journey"><a href="#sec-journey">2. Persona & User Journeys</a></li>
-          <li class="toc-item" id="toc-market"><a href="#sec-market">3. Market Transition</a></li>
-          <li class="toc-item" id="toc-thesis"><a href="#sec-thesis">4. Why BrowserStack?</a></li>
-          <li class="toc-item" id="toc-lens"><a href="#sec-lens">5. Strategic Lens</a></li>
-          <li class="toc-item" id="toc-swot"><a href="#sec-swot">6. SWOT Analysis</a></li>
-          <li class="toc-item" id="toc-whitespace"><a href="#sec-whitespace">7. The Whitespace Moat</a></li>
-          <li class="toc-item" id="toc-path"><a href="#sec-path">8. The Path Forward</a></li>
-          <li class="toc-item" id="toc-metrics"><a href="#sec-metrics">9. North Star Metrics</a></li>
+          <li class="toc-item" id="toc-market"><a href="#sec-market">1. Market Analysis</a></li>
+          <li class="toc-item" id="toc-swot"><a href="#sec-swot">2. SWOT Analysis</a></li>
+          <li class="toc-item" id="toc-whitespace"><a href="#sec-whitespace">3. The Whitespace Gaps</a></li>
+          <li class="toc-item" id="toc-thesis"><a href="#sec-thesis">4. Why BrowserStack Wins?</a></li>
+          <li class="toc-item" id="toc-journey"><a href="#sec-journey">5. User Journeys</a></li>
+          <li class="toc-item" id="toc-path"><a href="#sec-path">6. The Path Forward</a></li>
+          <li class="toc-item" id="toc-metrics"><a href="#sec-metrics">7. North Star Metrics</a></li>
           <li class="toc-item" id="toc-sources"><a href="#sec-sources">Sources & References</a></li>
         </ul>
       </aside>
@@ -1289,69 +1287,24 @@
           This document details BrowserStack's entry strategy into the Digital Accessibility market. Rather than building a standalone, compliance-first advisory platform, BrowserStack is uniquely positioned to execute a <strong>"Developer-First Wedge"</strong>—embedding accessibility testing directly into the standard release workflow. By shifting from audit-based dashboards to code-level automated remediation, we leverage our existing infrastructure to drive developer adoption and velocity.
         </p>
 
-        <!-- Section 1: The Invisible Wall -->
-        <section class="doc-section" id="sec-hook">
-          <h2>1. The Hook: The Invisible Wall</h2>
+        <!-- Section 1: Market Analysis -->
+        <section class="doc-section" id="sec-market">
+          <h2>1. Market Analysis</h2>
+          
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; margin: 0 0 0.75rem 0; color: var(--text-primary);">The Industry Pain Point: The Invisible Wall</h3>
           <p>
-            For the modern software developer, digital accessibility (a11y) represents an invisible wall. It is frequently viewed as a complex chore, an administrative bottleneck, or a final compliance checklist item that threatens to stall release cycles. Currently, accessibility is treated as a hurdle to overcome rather than a core metric of product quality.
+            For the modern software developer, digital accessibility (a11y) represents an **invisible wall**. Currently, accessibility is viewed as a hurdle—a final regulatory gate that threatens to delay ship dates and disrupt release velocity. The root cause of this friction lies in the tooling:
           </p>
-          <p>
-            This friction exists because traditional tools and processes focus on broad legal governance. They compile high-level metrics for compliance officers rather than addressing the immediate code-level reality of the release workflow. The result is a broken loop where issues are identified late, context is lost, and developers face a wall of backlog tasks with little guidance on how to fix them.
-          </p>
-          <div class="callout-box">
+          <div class="callout-box" style="margin-top: 1rem; margin-bottom: 1.5rem;">
             <p>"Accessibility fails not because developers don't care, but because the tools we give them are built for lawyers, not editors."</p>
           </div>
-        </section>
-
-        <!-- Section 2: Persona and Journeys -->
-        <section class="doc-section" id="sec-journey">
-          <h2>2. Persona & User Journeys</h2>
-          <p class="lead-paragraph">
-            Understanding the real-world friction our users experience is vital to designing the right solution.
-          </p>
-          
-          <div class="feature-grid">
-            <div class="feature-card" style="border-left: 4px solid var(--brand-blue);">
-              <h3 class="feature-title">👨‍💻 User Persona: The Agile Developer / QA Engineer</h3>
-              <p class="feature-desc" style="margin-bottom: 0;">
-                They use BrowserStack daily to execute high-velocity functional tests in their CI/CD release pipelines. Their primary objective is moving code from commit to deploy without regulatory or quality roadblocks.
-              </p>
-            </div>
-          </div>
-
-          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; margin: 1.5rem 0 0.75rem 0; color: var(--text-primary);">The Current User Journey: A Broken Feedback Loop</h3>
           <p>
-            Currently, accessibility is handled as a separate quality silo. The cycle is slow, manual, and generates friction:
+            Traditional accessibility suites focus on broad, high-level compliance reports designed for executive dashboards or legal teams. They do not fit into the code-write-test-deploy loop. Developers are often handed massive, PDF-based manual audit reports weeks after the code is written, forcing them to reconstruct context, re-open legacy codebases, and delay new features.
           </p>
-          <div style="background: rgba(239, 68, 68, 0.03); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: var(--border-radius); padding: 1.5rem; margin-bottom: 1.5rem;">
-            <ul class="swot-list">
-              <li><strong>Step 1 (Develop & Test):</strong> The developer builds features and runs cross-browser functional testing on BrowserStack.</li>
-              <li><strong>Step 2 (Handoff):</strong> Because accessibility testing requires auditing, the team packages the application and hands it off to an external accessibility vendor.</li>
-              <li><strong>Step 3 (High SLA Wait):</strong> The developer waits (often days or weeks) for the vendor to finish manual review or separate auditing sweeps.</li>
-              <li><strong>Step 4 (Receive Grade):</strong> The developer receives a compliance report/grade (a WCAG checklist PDF) with dozens of reported flaws.</li>
-              <li><strong>Step 5 (Tedious Fixes):</strong> The developer spends massive manual effort trying to reconstruct the visual/code context of the bugs and manually apply fixes. The cycle then repeats.</li>
-            </ul>
-          </div>
 
-          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; margin: 1.5rem 0 0.75rem 0; color: var(--text-primary);">The New Journey: A Seamless, Embedded Experience</h3>
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; margin: 2rem 0 0.75rem 0; color: var(--text-primary);">Market Sizing and Growth</h3>
           <p>
-            By integrating accessibility scans directly into the developer's primary workflow, we create an automated, friction-free feedback loop:
-          </p>
-          <div style="background: rgba(16, 185, 129, 0.03); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: var(--border-radius); padding: 1.5rem;">
-            <ul class="swot-list" style="color: var(--text-secondary);">
-              <li><strong>Step 1 (Write Code):</strong> The developer writes code and triggers automated functional test scripts.</li>
-              <li><strong>Step 2 (Real-Time Auto-Scan):</strong> BrowserStack's adjacent testing layer scans the DOM and accessibility tree on our physical devices in real-time.</li>
-              <li><strong>Step 3 (Instant Alerts):</strong> Issues are flagged in the test execution console and pull request gates immediately.</li>
-              <li><strong>Step 4 (Zero SLA):</strong> The developer receives AI-suggested code fixes instantly in their workflow, applies the fix, and deploys. No manual handoffs, no extra effort.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Section 3: The Market Story: From Audit to Automation -->
-        <section class="doc-section" id="sec-market">
-          <h2>3. The Market Story: From Audit to Automation</h2>
-          <p>
-            The digital accessibility landscape is shifting beneath us. The market—currently estimated between <strong>$0.85B and $1.75B</strong>—is rapidly moving away from periodic, manual third-party audits toward continuous, automated, developer-led monitoring. 
+            The digital accessibility landscape is experiencing a structural shift, moving away from slow, manual external audits toward continuous, automated, developer-led monitoring. 
           </p>
 
           <!-- Metrics Dashboard -->
@@ -1378,59 +1331,57 @@
           <p>
             This momentum points to a TAM of up to <strong>$1.9B by 2026</strong>. The growth is fueled by a structural transition: enterprise teams are no longer satisfied with static audit reports that go stale the minute new code is committed. Instead, they require framework-aware remediation tools that can scan, report, and suggest patches inside their component libraries.
           </p>
-        </section>
 
-        <!-- Section 4: The Thesis: Why BrowserStack? -->
-        <section class="doc-section" id="sec-thesis">
-          <h2>4. The Thesis: Why BrowserStack?</h2>
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; margin: 2rem 0 0.75rem 0; color: var(--text-primary);">TAM Derivation & Calculation Model</h3>
           <p>
-            BrowserStack’s opportunity lies in a fundamental pivot: <strong>moving from a "compliance-first" mindset to a "developer-velocity" mindset</strong>. By evaluating Digital Accessibility as an adjacent testing layer rather than a standalone siloed platform, we integrate seamlessly with how modern engineering teams build and deploy software.
+            To substantiate our market outlook, we developed a bottom-up TAM model based on three core organizational segments, scaling annual developer subscription value against global customer counts:
           </p>
-          
-          <p>
-            We possess an unmatched foundation that allows us to own this space immediately:
-          </p>
-          
-          <!-- Core Infrastructure Grid -->
-          <div class="feature-grid">
-            <div class="feature-card">
-              <div class="feature-icon">7M</div>
-              <h3 class="feature-title">7M+ Registered Users</h3>
-              <p class="feature-desc">Immediate distribution. We leverage an existing, deeply loyal developer base that already runs tests on BrowserStack daily.</p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">3.5k</div>
-              <h3 class="feature-title">3,500+ Combinations</h3>
-              <p class="feature-desc">Real physical mobile devices and desktop browser instances. We test accessibility where real users experience it.</p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">CI</div>
-              <h3 class="feature-title">Native Pipeline Integrations</h3>
-              <p class="feature-desc">Embedded in Jenkins, GitHub Actions, GitLab, CircleCI. Accessibility check triggers automatically on pull requests.</p>
-            </div>
+          <div style="overflow-x: auto; margin: 1.5rem 0; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.25rem;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-primary);">
+                  <th style="padding: 10px; font-weight: 600;">Segment / Account Scale</th>
+                  <th style="padding: 10px; font-weight: 600; text-align: right;">Target Account Count</th>
+                  <th style="padding: 10px; font-weight: 600; text-align: right;">Avg. Annual Spend (ACV)</th>
+                  <th style="padding: 10px; font-weight: 600; text-align: right; color: var(--brand-blue);">Segment TAM</th>
+                </tr>
+              </thead>
+              <tbody style="color: var(--text-secondary);">
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                  <td style="padding: 10px;"><strong>Enterprise Tier</strong> (Fortune 2000 & large tech)</td>
+                  <td style="padding: 10px; text-align: right;">~15,000</td>
+                  <td style="padding: 10px; text-align: right;">$50,000</td>
+                  <td style="padding: 10px; text-align: right; font-weight: 600; color: var(--text-primary);">$750M</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                  <td style="padding: 10px;"><strong>Mid-Market Tier</strong> (100-1000 employees)</td>
+                  <td style="padding: 10px; text-align: right;">~150,000</td>
+                  <td style="padding: 10px; text-align: right;">$6,000</td>
+                  <td style="padding: 10px; text-align: right; font-weight: 600; color: var(--text-primary);">$900M</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                  <td style="padding: 10px;"><strong>Professional / SMB Tier</strong> (Agencies, small teams)</td>
+                  <td style="padding: 10px; text-align: right;">~500,000</td>
+                  <td style="padding: 10px; text-align: right;">$500</td>
+                  <td style="padding: 10px; text-align: right; font-weight: 600; color: var(--text-primary);">$250M</td>
+                </tr>
+                <tr style="background: rgba(41, 128, 185, 0.05);">
+                  <td style="padding: 12px; color: var(--text-primary);"><strong>Total Addressable Market (TAM)</strong></td>
+                  <td style="padding: 12px; text-align: right; color: var(--text-primary);"><strong>~665,000</strong></td>
+                  <td style="padding: 12px; text-align: right; color: var(--text-primary);"><strong>Weighted Avg.</strong></td>
+                  <td style="padding: 12px; text-align: right; color: var(--brand-blue); font-size: 1.1rem; font-weight: 800;"><strong>$1.9 Billion</strong></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-
-          <p>
-            We aren't just checking compliance boxes; we are enabling speed. By incorporating accessibility verification alongside functional cross-browser testing, we remove duplicate setups, reduce script maintenance, and provide a unified source of truth.
+          <p style="font-size: 0.85rem; color: var(--text-muted); font-style: italic; line-height: 1.4;">
+            *Methodology Note: Forecasts assume budget shift from high-SLA manual external professional audits (service contracts) toward automated continuous code verification software, allowing BrowserStack to capture market share directly at the commit stage.
           </p>
         </section>
 
-        <!-- Section 5: The Strategic Lens: Navigating the Need -->
-        <section class="doc-section" id="sec-lens">
-          <h2>5. The Strategic Lens: Navigating the Need</h2>
-          <p>
-            To win, we must comprehend the customer situation deeply. Enterprise digital product teams are under immense regulatory pressure (especially with the European Accessibility Act enforcement and ADA Web updates in the US). However, they cannot afford to sacrifice release velocity. 
-          </p>
-          <p>
-            By identifying these high-growth customers, we observe a desperate need for automation that carries the credibility of real-device validation. Incumbents offer automated scanning on emulators or static HTML, which misses dynamic Javascript state changes. We cut through the noise of broad governance suites and provide the specific automated scans and assistive-technology screen reader testing (NVDA, JAWS, VoiceOver) that developers actually need. We evaluate our success not by market entry alone, but by our ability to convert our massive user base into active accessibility advocates.
-          </p>
-        </section>
-
-        <!-- Section 6: SWOT Analysis -->
+        <!-- Section 2: SWOT Analysis -->
         <section class="doc-section" id="sec-swot">
-          <h2>6. SWOT Analysis</h2>
+          <h2>2. SWOT Analysis</h2>
           <p>
             A balanced evaluation of our strategic positioning reveals a clear path forward where our technical strengths offset our domain weaknesses:
           </p>
@@ -1488,11 +1439,11 @@
           </div>
         </section>
 
-        <!-- Section 7: The Battleground: Winning the Whitespace -->
+        <!-- Section 3: Winning the Whitespace (Gaps) -->
         <section class="doc-section" id="sec-whitespace">
-          <h2>7. The Battleground: Winning the Whitespace</h2>
+          <h2>3. The Whitespace Gaps</h2>
           <p>
-            The battleground is the <strong>"Whitespace"</strong>—the critical gap between finding an accessibility issue and fixing it. 
+            The critical competitive battleground is the <strong>"Whitespace"</strong>—the operational gap between discovering an accessibility issue and actually fixing it. 
           </p>
           <p>
             While pure-play vendors have established legal credibility and extensive consultant teams, they lack the native CI/CD integration and real-device infrastructure that BrowserStack commands. They can tell a company they are violating WCAG guidelines, but they cannot tell the developer which line of code to edit. 
@@ -1502,14 +1453,85 @@
           </p>
         </section>
 
-        <!-- Section 8: The Path Forward: The Developer-First Wedge -->
-        <section class="doc-section" id="sec-path">
-          <h2>8. The Path Forward: The Developer-First Wedge</h2>
+        <!-- Section 4: Why BrowserStack Wins? (The Moat) -->
+        <section class="doc-section" id="sec-thesis">
+          <h2>4. Why BrowserStack Wins? (The Moat)</h2>
           <p>
-            Our recommendation is clear: <strong>Enter the market as an integrated product layer, not a standalone suite.</strong> 
+            BrowserStack’s opportunity lies in a fundamental pivot: <strong>moving from a "compliance-first" mindset to a "developer-velocity" mindset</strong>. By evaluating Digital Accessibility as an adjacent testing layer rather than a standalone siloed platform, we integrate seamlessly with how modern engineering teams build and deploy software. We possess an unmatched foundation that allows us to own this space immediately:
           </p>
+          
+          <!-- Core Infrastructure Grid -->
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon">7M</div>
+              <h3 class="feature-title">7M+ Registered Users</h3>
+              <p class="feature-desc">Immediate distribution. We leverage an existing, deeply loyal developer base that already runs tests on BrowserStack daily.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon">3.5k</div>
+              <h3 class="feature-title">3,500+ Combinations</h3>
+              <p class="feature-desc">Real physical mobile devices and desktop browser instances. We test accessibility where real users experience it.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon">CI</div>
+              <h3 class="feature-title">Native Pipeline Integrations</h3>
+              <p class="feature-desc">Embedded in Jenkins, GitHub Actions, GitLab, CircleCI. Accessibility check triggers automatically on pull requests.</p>
+            </div>
+          </div>
+
           <p>
-            We must own the workflow gap by leveraging the browsers, devices, and pipelines where BrowserStack already leads. By providing the most reliable real-device validation and AI-assisted remediation, we become the default choice for every modern digital team. 
+            We aren't just checking compliance boxes; we are enabling speed. By incorporating accessibility verification alongside functional cross-browser testing, we remove duplicate setups, reduce script maintenance, and provide a unified source of truth.
+          </p>
+        </section>
+
+        <!-- Section 5: User Journeys: Current vs. Solution -->
+        <section class="doc-section" id="sec-journey">
+          <h2>5. User Journeys: Current vs. Solution</h2>
+          
+          <div class="feature-grid">
+            <div class="feature-card" style="border-left: 4px solid var(--brand-blue);">
+              <h3 class="feature-title">👨‍💻 User Persona: The Agile Developer / QA Engineer</h3>
+              <p class="feature-desc" style="margin-bottom: 0;">
+                They use BrowserStack daily to execute high-velocity functional tests in their CI/CD release pipelines. Their primary objective is moving code from commit to deploy without regulatory or quality roadblocks.
+              </p>
+            </div>
+          </div>
+
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; margin: 1.5rem 0 0.75rem 0; color: var(--text-primary);">The Current User Journey: A Broken Feedback Loop</h3>
+          <p>
+            Currently, accessibility is handled as a separate quality silo. The cycle is slow, manual, and generates friction:
+          </p>
+          <div style="background: rgba(239, 68, 68, 0.03); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: var(--border-radius); padding: 1.5rem; margin-bottom: 1.5rem;">
+            <ul class="swot-list">
+              <li><strong>Step 1 (Develop & Test):</strong> The developer builds features and runs cross-browser functional testing on BrowserStack.</li>
+              <li><strong>Step 2 (Handoff):</strong> Because accessibility testing requires auditing, the team packages the application and hands it off to an external accessibility vendor.</li>
+              <li><strong>Step 3 (High SLA Wait):</strong> The developer waits (often days or weeks) for the vendor to finish manual review or separate auditing sweeps.</li>
+              <li><strong>Step 4 (Receive Grade):</strong> The developer receives a compliance report/grade (a WCAG checklist PDF) with dozens of reported flaws.</li>
+              <li><strong>Step 5 (Tedious Fixes):</strong> The developer spends massive manual effort trying to reconstruct the visual/code context of the bugs and manually apply fixes. The cycle then repeats.</li>
+            </ul>
+          </div>
+
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; margin: 1.5rem 0 0.75rem 0; color: var(--text-primary);">The New Journey: A Seamless, Embedded Experience</h3>
+          <p>
+            By integrating accessibility scans directly into the developer's primary workflow, we create an automated, friction-free feedback loop:
+          </p>
+          <div style="background: rgba(16, 185, 129, 0.03); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: var(--border-radius); padding: 1.5rem;">
+            <ul class="swot-list" style="color: var(--text-secondary);">
+              <li><strong>Step 1 (Write Code):</strong> The developer writes code and triggers automated functional test scripts.</li>
+              <li><strong>Step 2 (Real-Time Auto-Scan):</strong> BrowserStack's adjacent testing layer scans the DOM and accessibility tree on our physical devices in real-time.</li>
+              <li><strong>Step 3 (Instant Alerts):</strong> Issues are flagged in the test execution console and pull request gates immediately.</li>
+              <li><strong>Step 4 (Zero SLA):</strong> The developer receives AI-suggested code fixes instantly in their workflow, applies the fix, and deploys. No manual handoffs, no extra effort.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Section 6: The Path Forward (Roadmap & MVP) -->
+        <section class="doc-section" id="sec-path">
+          <h2>6. The Path Forward (Roadmap & MVP)</h2>
+          <p>
+            Our recommendation is clear: <strong>Enter the market as an integrated product layer, not a standalone suite.</strong> We must own the workflow gap by leveraging the browsers, devices, and pipelines where BrowserStack already leads. By providing the most reliable real-device validation and AI-assisted remediation, we become the default choice for every modern digital team. 
           </p>
           <p>
             Our deployment roadmap centers around a phased wedge strategy:
@@ -1532,9 +1554,9 @@
           </p>
         </section>
 
-        <!-- Section 9: North Star Metrics -->
+        <!-- Section 7: Strategic North Star Metrics -->
         <section class="doc-section" id="sec-metrics">
-          <h2>9. North Star Metrics</h2>
+          <h2>7. Strategic North Star Metrics</h2>
           <p>
             To track the performance, adoption, and customer value of BrowserStack's accessibility rollout, we will monitor these four North Star metrics:
           </p>
@@ -1568,67 +1590,67 @@
           <ul class="sources-list">
             <li class="source-item">
               <span class="source-num">1</span>
-              <span class="source-content"><strong>BrowserStack</strong>: <a href="https://www.browserstack.com" target="_blank">Most Reliable App & Cross Browser Testing</a></span>
+              <span class="source-content"><strong><a href="https://www.browserstack.com" target="_blank">BrowserStack</a></strong>: <em>Most Reliable App & Cross Browser Testing Platform</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">2</span>
-              <span class="source-content"><strong>BrowserStack</strong>: <em>Unveils Comprehensive Test Platform to Transform Software Testing in the AI Era</em> (Press Release)</span>
+              <span class="source-content"><strong><a href="https://www.prnewswire.com/news-releases/browserstack-unveils-comprehensive-test-platform-to-transform-software-testing-in-the-ai-era-302388056.html" target="_blank">BrowserStack</a></strong>: <em>Unveils Comprehensive Test Platform to Transform Software Testing in the AI Era</em> (Press Release)</span>
             </li>
             <li class="source-item">
               <span class="source-num">3</span>
-              <span class="source-content"><strong>ThePrint</strong>: <em>BrowserStack Unveils Comprehensive Test Platform</em> (Media Coverage)</span>
+              <span class="source-content"><strong><a href="https://theprint.in" target="_blank">ThePrint</a></strong>: <em>BrowserStack Unveils Comprehensive Test Platform</em> (Media Coverage)</span>
             </li>
             <li class="source-item">
               <span class="source-num">4</span>
-              <span class="source-content"><strong>Mordor Intelligence</strong>: <em>Digital Accessibility Software Market Size & Growth to 2031</em></span>
+              <span class="source-content"><strong><a href="https://www.mordorintelligence.com/industry-reports/digital-accessibility-software-market" target="_blank">Mordor Intelligence</a></strong>: <em>Digital Accessibility Software Market Size & Growth to 2031</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">5</span>
-              <span class="source-content"><strong>Straits Research</strong>: <em>Digital Accessibility Market Size, Share, Growth, Analysis</em></span>
+              <span class="source-content"><strong><a href="https://straitsresearch.com/report/digital-accessibility-market" target="_blank">Straits Research</a></strong>: <em>Digital Accessibility Market Size, Share, Growth, Analysis</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">6</span>
-              <span class="source-content"><strong>BarrierBreak</strong>: <em>What to Look for in a Digital Accessibility Platform</em></span>
+              <span class="source-content"><strong><a href="https://www.barrierbreak.com" target="_blank">BarrierBreak</a></strong>: <em>What to Look for in a Digital Accessibility Platform</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">7</span>
-              <span class="source-content"><strong>Digital.ai</strong>: <em>The Accessibility Gap: Why Compliance Alone Isn't Enough</em></span>
+              <span class="source-content"><strong><a href="https://digital.ai" target="_blank">Digital.ai</a></strong>: <em>The Accessibility Gap: Why Compliance Alone Isn't Enough</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">8</span>
-              <span class="source-content"><strong>Deque Systems</strong>: <em>Axe Auditor: Alleviating Manual Testing Pain Points</em></span>
+              <span class="source-content"><strong><a href="https://www.deque.com" target="_blank">Deque Systems</a></strong>: <em>Axe Auditor: Alleviating Manual Testing Pain Points</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">9</span>
-              <span class="source-content"><strong>DevOps.com</strong>: <em>Three Manual Accessibility Testing Pain Points</em></span>
+              <span class="source-content"><strong><a href="https://devops.com" target="_blank">DevOps.com</a></strong>: <em>Three Manual Accessibility Testing Pain Points</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">10</span>
-              <span class="source-content"><strong>W3C</strong>: <em>Web Content Accessibility Guidelines (WCAG) 2.2</em> (December 2023)</span>
+              <span class="source-content"><strong><a href="https://www.w3.org/TR/WCAG22/" target="_blank">W3C</a></strong>: <em>Web Content Accessibility Guidelines (WCAG) 2.2</em> (December 2023)</span>
             </li>
             <li class="source-item">
               <span class="source-num">11</span>
-              <span class="source-content"><strong>Inviqa</strong>: <em>Digital accessibility challenges (and how to solve them)</em></span>
+              <span class="source-content"><strong><a href="https://inviqa.com" target="_blank">Inviqa</a></strong>: <em>Digital accessibility challenges (and how to solve them)</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">12</span>
-              <span class="source-content"><strong>Cerovac</strong>: <em>Mind the Accessibility Gaps</em></span>
+              <span class="source-content"><strong><a href="https://cerovac.com" target="_blank">Cerovac</a></strong>: <em>Mind the Accessibility Gaps</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">13</span>
-              <span class="source-content"><strong>Level Access</strong>: <em>Accessibility Testing Tools: Useful, When Used Properly</em></span>
+              <span class="source-content"><strong><a href="https://www.levelaccess.com" target="_blank">Level Access</a></strong>: <em>Accessibility Testing Tools: Useful, When Used Properly</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">14</span>
-              <span class="source-content"><strong>Vispero</strong>: <em>Accessibility tools for developers and accessibility testing</em></span>
+              <span class="source-content"><strong><a href="https://vispero.com" target="_blank">Vispero</a></strong>: <em>Accessibility tools for developers and accessibility testing</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">15</span>
-              <span class="source-content"><strong>BrowserStack</strong>: <a href="https://www.browserstack.com/about" target="_blank">About Us</a></span>
+              <span class="source-content"><strong><a href="https://www.browserstack.com/about" target="_blank">BrowserStack</a></strong>: <em>About Us</em></span>
             </li>
             <li class="source-item">
               <span class="source-num">16</span>
-              <span class="source-content"><strong>YourStory</strong>: <em>BrowserStack introduces AI test platform to streamline software testing</em></span>
+              <span class="source-content"><strong><a href="https://yourstory.com" target="_blank">YourStory</a></strong>: <em>BrowserStack introduces AI test platform to streamline software testing</em></span>
             </li>
           </ul>
         </section>
@@ -1642,7 +1664,6 @@
   <main class="view-container" id="presentation-view">
     <div class="presentation-container">
       <div class="presentation-viewport">
-        
         <!-- Slide 1: Cover & Approach -->
         <div class="slide-card title-slide active" id="slide-1">
           <header class="slide-header" style="border: none; padding-bottom: 0;">
@@ -1662,410 +1683,309 @@
               <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.5rem; box-shadow: var(--shadow-premium);">
                 <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Our Strategic Approach</h3>
                 <ul class="slide-bullet-list" style="margin-top: 0; font-size: 0.85rem; line-height: 1.4;">
-                  <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; font-size: 0.9rem;"><strong style="color: var(--brand-blue);">Market & TAM:</strong> Capitalizing on a growing <strong>$1.9B TAM by 2026</strong>.</li>
-                  <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; font-size: 0.9rem;"><strong style="color: var(--accent-purple);">Competition:</strong> Bridging the "whitespace" gap where compliance audits fail.</li>
-                  <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; font-size: 0.9rem;"><strong style="color: var(--accent-teal);">Win-Win Moat:</strong> Speed for clients, higher ARPU/retention for BrowserStack.</li>
-                  <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; font-size: 0.9rem;"><strong style="color: var(--accent-amber);">MVP & Phases:</strong> Starting with auto-scans, expanding to screen-readers and AI fixes.</li>
-                  <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; font-size: 0.9rem;"><strong style="color: var(--accent-red);">North Stars:</strong> Tracking active developer adoption and remediation rate.</li>
+                  <li style="margin-bottom: 0.6rem; padding-left: 1.5rem; font-size: 0.88rem;"><strong style="color: var(--brand-blue);">Market Analysis:</strong> Structural shift to continuous, automated validation.</li>
+                  <li style="margin-bottom: 0.6rem; padding-left: 1.5rem; font-size: 0.88rem;"><strong style="color: var(--accent-purple);">SWOT & Gaps:</strong> Identifying whitespace where manual audits stall delivery.</li>
+                  <li style="margin-bottom: 0.6rem; padding-left: 1.5rem; font-size: 0.88rem;"><strong style="color: var(--accent-teal);">Infrastructure Moat:</strong> Scale of 7M+ users and 3.5k real devices.</li>
+                  <li style="margin-bottom: 0.6rem; padding-left: 1.5rem; font-size: 0.88rem;"><strong style="color: var(--accent-amber);">Developer Journey:</strong> Shifting to seamless, real-time code auto-remediation.</li>
+                  <li style="margin-bottom: 0.6rem; padding-left: 1.5rem; font-size: 0.88rem;"><strong style="color: var(--accent-red);">Roadmap & Metrics:</strong> Multi-phase rollout gated by North Star metrics.</li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="slide-footer">
-            <span>Slide 1 of 12</span>
+            <span>Slide 1 of 9</span>
             <span>BrowserStack Strategy Group</span>
           </div>
         </div>
 
-        <!-- Slide 2: The Hook -->
+        <!-- Slide 2: Market Analysis -->
         <div class="slide-card" id="slide-2">
           <header class="slide-header">
-            <span class="slide-label">The Invisible Wall</span>
+            <span class="slide-label">Market Sizing & TAM Derivation</span>
             <span class="slide-branding">BrowserStack A11y</span>
           </header>
           <div class="slide-body">
-            <h2 class="slide-title">2. The Hook: Accessibility is an Invisible Wall</h2>
-            <div class="slide-layout-columns">
+            <h2 class="slide-title">2. Market Analysis: TAM Calculation & Derivation</h2>
+            <div class="slide-layout-split" style="grid-template-columns: 1.15fr 0.85fr; gap: 2rem;">
               <div>
-                <p class="slide-text" style="margin-bottom: 1.5rem;">
-                  For modern developer teams, accessibility checks often feel like an administrative gate, forcing release delays:
-                </p>
-                <ul class="slide-bullet-list">
-                  <li><strong>A Compliance Checkbox:</strong> Typically treated as an afterthought in late stages.</li>
-                  <li><strong>Broad Governance Focus:</strong> Incumbent tools output legal audits rather than line-of-code bugs.</li>
-                  <li><strong>Process Friction:</strong> Delays delivery pipelines and pits developers against compliance officers.</li>
+                <strong style="color: var(--brand-blue); text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.5rem;">Bottom-Up Calculation Segments:</strong>
+                <ul class="slide-bullet-list" style="font-size: 0.78rem; line-height: 1.45; margin-top: 0;">
+                  <li style="margin-bottom: 0.4rem; padding-left: 1.25rem;"><strong style="color: var(--text-primary);">Enterprise Tier:</strong> ~15k accounts &times; $50k spend/yr = <strong>$750M</strong></li>
+                  <li style="margin-bottom: 0.4rem; padding-left: 1.25rem;"><strong style="color: var(--text-primary);">Mid-Market Tier:</strong> ~150k accounts &times; $6k spend/yr = <strong>$900M</strong></li>
+                  <li style="margin-bottom: 0.4rem; padding-left: 1.25rem;"><strong style="color: var(--text-primary);">Professional / SMB Tier:</strong> ~500k accounts &times; $500/yr = <strong>$250M</strong></li>
                 </ul>
+                <p class="slide-text" style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; line-height: 1.4;">
+                  Derived from Straits Research / Mordor Intelligence. Focuses on shifting budgets from manual audits to automated testing software.
+                </p>
               </div>
-              <div style="background: rgba(239, 68, 68, 0.05); border: 1.5px dashed rgba(239, 68, 68, 0.2); border-radius: var(--border-radius); padding: 1.5rem; text-align: center;">
-                <span style="font-size: 3rem; color: var(--accent-red);">🛇</span>
-                <h4 style="margin: 0.5rem 0; font-size: 1.2rem; color: var(--text-primary);">Release Blocker</h4>
-                <p style="font-size: 0.85rem; color: var(--text-secondary);">Traditional audits create developer friction and stall releases.</p>
+              <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1rem; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                <span style="font-size: 0.75rem; color: var(--text-muted); font-family: monospace; display: block; margin-bottom: 0.25rem;">TAM = Σ (Accounts &times; ACV)</span>
+                <span style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase;">2026 Bottom-Up Target</span>
+                <div style="font-size: 2rem; font-weight: 800; color: var(--brand-blue);">$1.9 Billion</div>
+                <span style="font-size: 0.75rem; color: var(--accent-teal); font-weight: 600; margin-top: 0.25rem;">6% - 12% Market CAGR</span>
               </div>
             </div>
           </div>
           <div class="slide-footer">
-            <span>Slide 2 of 12</span>
-            <span>Strategic Pain Points</span>
+            <span>Slide 2 of 9</span>
+            <span>Market TAM</span>
           </div>
         </div>
 
-        <!-- Slide 3: Persona & Current Journey -->
+        <!-- Slide 3: SWOT Analysis -->
         <div class="slide-card" id="slide-3">
-          <header class="slide-header">
-            <span class="slide-label">User Persona & Current Journey</span>
-            <span class="slide-branding">BrowserStack A11y</span>
-          </header>
-          <div class="slide-body">
-            <h2 class="slide-title">3. Persona & Current User Journey</h2>
-            <div class="slide-layout-columns" style="grid-template-columns: 0.8fr 1.2fr; gap: 2rem;">
-              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.25rem;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem; text-align: center;">👨‍💻</div>
-                <h4 style="font-size: 1.1rem; color: var(--text-primary); text-align: center; margin-bottom: 0.5rem;">The Agile Developer</h4>
-                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; text-align: center;">
-                  Relies on BrowserStack daily for quick cross-browser and automated functional testing.
-                </p>
-              </div>
-              <div>
-                <strong style="color: var(--accent-red); text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.5rem;">Current Friction-Filled Loop:</strong>
-                <ol style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 8px;">
-                  <li><strong>Functional Test:</strong> Developer runs builds on BrowserStack.</li>
-                  <li><strong>Vendor Hand-off:</strong> Build is sent to external testing vendor or audit team.</li>
-                  <li><strong>High SLA Wait:</strong> Developer waits days or weeks for manual testing / reports.</li>
-                  <li><strong>Get Grade:</strong> Compliance officer returns a static WCAG compliance checklist.</li>
-                  <li><strong>Tedious Manual Fixes:</strong> Developer manually tries to match bugs to code context, adding extra effort and delays.</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-          <div class="slide-footer">
-            <span>Slide 3 of 12</span>
-            <span>Current Bottlenecks</span>
-          </div>
-        </div>
-
-        <!-- Slide 4: The Future Seamless Journey -->
-        <div class="slide-card" id="slide-4">
-          <header class="slide-header">
-            <span class="slide-label">The Future Seamless Journey</span>
-            <span class="slide-branding">BrowserStack A11y</span>
-          </header>
-          <div class="slide-body">
-            <h2 class="slide-title">4. The New Journey: Seamless Integration</h2>
-            <div class="slide-layout-columns" style="grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: center;">
-              <div>
-                <strong style="color: var(--accent-teal); text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.5rem;">Seamless Developer Flow:</strong>
-                <ul class="slide-bullet-list" style="margin-top: 0; font-size: 0.85rem; line-height: 1.4;">
-                  <li><strong>Adjacent Testing Layer:</strong> Accessibility checks run automatically alongside standard functional scripts.</li>
-                  <li><strong>Real-Time Alerts:</strong> Issues are flagged in the test execution console instantly.</li>
-                  <li><strong>Zero SLA Delay:</strong> No waiting for external audits or manual reviews.</li>
-                  <li><strong>Auto-Remediation:</strong> AI suggests line-of-code corrections to close the loop fast.</li>
-                </ul>
-              </div>
-              <div style="background: rgba(16, 185, 129, 0.05); border: 1.5px dashed rgba(16, 185, 129, 0.2); border-radius: var(--border-radius); padding: 1.25rem; text-align: center;">
-                <span style="font-size: 2.5rem; color: var(--accent-teal);">🚀</span>
-                <h4 style="margin: 0.5rem 0; font-size: 1.1rem; color: var(--text-primary);">Zero Friction</h4>
-                <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">
-                  Compliance is achieved in real-time within the existing test pipeline, saving hours of manual rework.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="slide-footer">
-            <span>Slide 4 of 12</span>
-            <span>Seamless Future State</span>
-          </div>
-        </div>
-
-        <!-- Slide 5: Market Opportunity -->
-        <div class="slide-card" id="slide-5">
-          <header class="slide-header">
-            <span class="slide-label">Market Dynamics</span>
-            <span class="slide-branding">BrowserStack A11y</span>
-          </header>
-          <div class="slide-body">
-            <h2 class="slide-title">5. Market: Transition to Automation</h2>
-            <div class="slide-layout-split">
-              <div>
-                <p class="slide-text" style="margin-bottom: 1.25rem;">
-                  Budgets are shifting from slow third-party manual audits towards automated developer-led verification.
-                </p>
-                <ul class="slide-bullet-list">
-                  <li><strong>TAM Growth:</strong> Reaching up to <strong>$1.9B by 2026</strong>.</li>
-                  <li><strong>Market CAGRs:</strong> Expanding at <strong>6% to 12%</strong> annually.</li>
-                  <li><strong>Geographic Hub:</strong> North America owns <strong>~43%</strong> of global spend.</li>
-                </ul>
-              </div>
-              <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.5rem; display: flex; flex-direction: column; justify-content: center;">
-                <div style="margin-bottom: 1.25rem;">
-                  <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Current Market Range</div>
-                  <div style="font-size: 1.6rem; font-weight: 700; color: var(--text-primary);">$0.85B - $1.75B</div>
-                </div>
-                <div>
-                  <div style="font-size: 0.8rem; color: var(--brand-blue); text-transform: uppercase; font-weight: 700;">2026 Target TAM</div>
-                  <div style="font-size: 2.2rem; font-weight: 800; color: var(--brand-blue);">$1.9 Billion</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="slide-footer">
-            <span>Slide 5 of 12</span>
-            <span>Sizing & Trends</span>
-          </div>
-        </div>
-
-        <!-- Slide 6: Why BrowserStack? -->
-        <div class="slide-card" id="slide-6">
-          <header class="slide-header">
-            <span class="slide-label">Strategic Edge</span>
-            <span class="slide-branding">BrowserStack A11y</span>
-          </header>
-          <div class="slide-body">
-            <h2 class="slide-title">6. Thesis: Why BrowserStack Wins?</h2>
-            <p class="slide-text" style="margin-bottom: 1.5rem;">
-              We pivot the market by connecting digital accessibility testing with <strong>developer-velocity</strong>. Our existing infrastructure is our immediate moat:
-            </p>
-            <div class="slide-metric-strip">
-              <div class="slide-metric-item" style="border-top: 3px solid var(--brand-blue);">
-                <div class="slide-metric-value">7M+</div>
-                <div class="slide-metric-label">Registered Developers</div>
-              </div>
-              <div class="slide-metric-item" style="border-top: 3px solid var(--accent-purple);">
-                <div class="slide-metric-value">3,500+</div>
-                <div class="slide-metric-label">Device & Browser Fleet</div>
-              </div>
-              <div class="slide-metric-item" style="border-top: 3px solid var(--accent-teal);">
-                <div class="slide-metric-value">100%</div>
-                <div class="slide-metric-label">CI/CD Native Pipelines</div>
-              </div>
-            </div>
-            <p class="slide-text" style="margin-top: 1.5rem; font-size: 0.95rem; font-style: italic; text-align: center; color: var(--text-primary);">
-              Instead of adding another vendor, teams enable an adjacent layer on top of their current BrowserStack test suites.
-            </p>
-          </div>
-          <div class="slide-footer">
-            <span>Slide 6 of 12</span>
-            <span>Infrastructure Moat</span>
-          </div>
-        </div>
-
-        <!-- Slide 7: The Strategic Lens -->
-        <div class="slide-card" id="slide-7">
-          <header class="slide-header">
-            <span class="slide-label">Strategic Lens</span>
-            <span class="slide-branding">BrowserStack A11y</span>
-          </header>
-          <div class="slide-body">
-            <h2 class="slide-title">7. Navigating the Need: Compliance + Speed</h2>
-            <div class="slide-layout-columns">
-              <div>
-                <p class="slide-text" style="font-size: 1.15rem; color: var(--text-primary); font-weight: 500; margin-bottom: 1rem;">
-                  Enterprise product teams are squeezed between regulatory pressure and release velocities.
-                </p>
-                <p class="slide-text" style="font-size: 0.95rem; margin-bottom: 1rem;">
-                  We provide the exact developer tools they need, with the credibility of real device hardware:
-                </p>
-                <ul class="slide-bullet-list" style="font-size: 0.95rem;">
-                  <li><strong>Fast Automated Scans:</strong> Integrated in PR gates to check rendering elements.</li>
-                  <li><strong>Assistive-Tech testing:</strong> Interactive screen-reader validation on physical devices.</li>
-                </ul>
-              </div>
-              <div style="background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: var(--border-radius); padding: 1.5rem; text-align: center;">
-                <span style="font-size: 1.5rem; color: var(--accent-purple); font-weight: bold; display: block; margin-bottom: 0.5rem;">Target</span>
-                <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.4;">
-                  Convert existing BrowserStack functional testers into Digital Accessibility advocates.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="slide-footer">
-            <span>Slide 7 of 12</span>
-            <span>Core Tension</span>
-          </div>
-        </div>
-
-        <!-- Slide 8: SWOT Analysis -->
-        <div class="slide-card" id="slide-8">
           <header class="slide-header">
             <span class="slide-label">SWOT Matrix</span>
             <span class="slide-branding">BrowserStack A11y</span>
           </header>
           <div class="slide-body">
-            <h2 class="slide-title" style="margin-bottom: 1rem;">8. SWOT Analysis</h2>
-            <div class="slide-layout-split" style="gap: 1.25rem; font-size: 0.9rem;">
-              <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 12px;">
-                <div style="background: rgba(16, 185, 129, 0.03); border: 1px solid rgba(16, 185, 129, 0.2); border-left: 3px solid var(--accent-teal); padding: 10px; border-radius: 6px;">
-                  <strong style="color: var(--accent-teal); display: block; font-size: 0.8rem; text-transform: uppercase;">Strengths</strong>
-                  7M+ user base, unmatched real-device cloud, existing CI/CD infrastructure pipelines.
+            <h2 class="slide-title" style="margin-bottom: 0.75rem;">3. SWOT Analysis</h2>
+            <div class="slide-layout-split" style="gap: 1rem; font-size: 0.82rem; line-height: 1.45;">
+              <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 10px;">
+                <div style="background: rgba(16, 185, 129, 0.02); border: 1px solid rgba(16, 185, 129, 0.15); border-left: 3px solid var(--accent-teal); padding: 10px; border-radius: 6px;">
+                  <strong style="color: var(--accent-teal); display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 2px;">Strengths (Internal)</strong>
+                  7M+ user footprint, 3,500+ device fleet, native CI/CD pipelines.
                 </div>
-                <div style="background: rgba(245, 158, 11, 0.03); border: 1px solid rgba(245, 158, 11, 0.2); border-left: 3px solid var(--accent-amber); padding: 10px; border-radius: 6px;">
-                  <strong style="color: var(--accent-amber); display: block; font-size: 0.8rem; text-transform: uppercase;">Weaknesses</strong>
-                  No historical compliance legal DNA; perceived as a general QA provider, not an auditor.
+                <div style="background: rgba(245, 158, 11, 0.02); border: 1px solid rgba(245, 158, 11, 0.15); border-left: 3px solid var(--accent-amber); padding: 10px; border-radius: 6px;">
+                  <strong style="color: var(--accent-amber); display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 2px;">Weaknesses (Internal)</strong>
+                  Limited compliance legal DNA; lack of brand equity with compliance officers.
                 </div>
               </div>
-              <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 12px;">
-                <div style="background: rgba(59, 130, 246, 0.03); border: 1px solid rgba(59, 130, 246, 0.2); border-left: 3px solid var(--brand-blue); padding: 10px; border-radius: 6px;">
-                  <strong style="color: var(--brand-blue); display: block; font-size: 0.8rem; text-transform: uppercase;">Opportunities</strong>
-                  Rising "Shift-Left" industry demand; fragmented vendor whitespace; AI-driven remediation.
+              <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 10px;">
+                <div style="background: rgba(59, 130, 246, 0.02); border: 1px solid rgba(59, 130, 246, 0.15); border-left: 3px solid var(--brand-blue); padding: 10px; border-radius: 6px;">
+                  <strong style="color: var(--brand-blue); display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 2px;">Opportunities (External)</strong>
+                  Shift-left quality gates; fragmented vendor whitespace; AI remediation.
                 </div>
-                <div style="background: rgba(239, 68, 68, 0.03); border: 1px solid rgba(239, 68, 68, 0.2); border-left: 3px solid var(--accent-red); padding: 10px; border-radius: 6px;">
-                  <strong style="color: var(--accent-red); display: block; font-size: 0.8rem; text-transform: uppercase;">Threats</strong>
-                  Incumbents with compliance legal credibility; testing platform acquisitions/consolidation.
+                <div style="background: rgba(239, 68, 68, 0.02); border: 1px solid rgba(239, 68, 68, 0.15); border-left: 3px solid var(--accent-red); padding: 10px; border-radius: 6px;">
+                  <strong style="color: var(--accent-red); display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 2px;">Threats (External)</strong>
+                  Pure-play compliance incumbents; platform consolidation/free extension tools.
                 </div>
               </div>
             </div>
           </div>
           <div class="slide-footer">
-            <span>Slide 8 of 12</span>
+            <span>Slide 3 of 9</span>
             <span>Strategic Framework</span>
           </div>
         </div>
 
-        <!-- Slide 9: Winning the Whitespace -->
-        <div class="slide-card" id="slide-9">
+        <!-- Slide 4: Winning the Whitespace (Gaps) -->
+        <div class="slide-card" id="slide-4">
           <header class="slide-header">
-            <span class="slide-label">The Battleground</span>
+            <span class="slide-label">The Whitespace Gaps</span>
             <span class="slide-branding">BrowserStack A11y</span>
           </header>
           <div class="slide-body">
-            <h2 class="slide-title">9. The Battleground: The "Whitespace" (Win-Win)</h2>
-            <div class="slide-layout-columns" style="align-items: flex-start;">
+            <h2 class="slide-title">4. Winning the Whitespace (Gaps)</h2>
+            <div class="slide-layout-columns" style="grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: center;">
               <div>
-                <p class="slide-text" style="font-size: 1.1rem; color: var(--text-primary); font-weight: 500; margin-bottom: 1rem;">
-                  A Win-Win for BrowserStack and the Enterprise Client.
+                <p class="slide-text" style="font-size: 0.9rem; margin-bottom: 1rem;">
+                  Incumbent compliance vendors write audits but fail at engineering workflows. The operational gap between finding a bug and fixing it is our battleground:
                 </p>
-                <ul class="slide-bullet-list" style="font-size: 0.95rem; margin-top: 0;">
-                  <li><strong>For Clients:</strong> Drastically reduces time-to-remediate from weeks to minutes, securing compliance and velocity simultaneously.</li>
-                  <li><strong>For BrowserStack:</strong> Captures fresh accessibility spend, increases ARPU, and secures user retention with an integrated platform moat.</li>
+                <ul class="slide-bullet-list" style="font-size: 0.82rem; margin-top: 0.5rem; line-height: 1.4;">
+                  <li style="margin-bottom: 0.4rem; padding-left: 1.25rem;"><strong>Incumbent Gap:</strong> No real-device clouds, no native CI/CD gating, no code integration.</li>
+                  <li style="margin-bottom: 0.4rem; padding-left: 1.25rem;"><strong>Remediation Context:</strong> BrowserStack provides exact code-level context inside developer PR logs.</li>
                 </ul>
               </div>
-              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.25rem; font-family: monospace; font-size: 0.8rem;">
-                <span style="color: #64748b;">// Remediation recommendation</span><br>
+              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.25rem; font-family: monospace; font-size: 0.78rem; line-height: 1.3;">
+                <span style="color: #64748b;">// Whitespace Fix</span><br>
                 <span style="color: #ef4444;">- &lt;img src="hero.jpg"&gt;</span><br>
                 <span style="color: #10b981;">+ &lt;img src="hero.jpg" alt="Strategic Plan"&gt;</span><br><br>
-                <div style="font-size: 0.75rem; color: var(--brand-blue); text-align: right; margin-top: 0.5rem;">[AI Auto-Remediated]</div>
+                <div style="font-size: 0.75rem; color: var(--brand-blue); text-align: right;">[AI Code Suggestion]</div>
               </div>
             </div>
           </div>
           <div class="slide-footer">
-            <span>Slide 9 of 12</span>
-            <span>Win-Win Strategy</span>
+            <span>Slide 4 of 9</span>
+            <span>Market Whitespace</span>
           </div>
         </div>
 
-        <!-- Slide 10: MVP & Phased Roadmap Plan -->
-        <div class="slide-card" id="slide-10">
+        <!-- Slide 5: Why BrowserStack Wins? (The Moat) -->
+        <div class="slide-card" id="slide-5">
+          <header class="slide-header">
+            <span class="slide-label">The Moat</span>
+            <span class="slide-branding">BrowserStack A11y</span>
+          </header>
+          <div class="slide-body">
+            <h2 class="slide-title">5. Why BrowserStack Wins? (The Moat)</h2>
+            <p class="slide-text" style="font-size: 0.9rem; margin-bottom: 1.25rem;">
+              We leverage our core testing assets to establish accessibility verification as an adjacent layer rather than a separate tool:
+            </p>
+            <div class="slide-metric-strip">
+              <div class="slide-metric-item" style="border-top: 3px solid var(--brand-blue); padding: 0.75rem;">
+                <div class="slide-metric-value" style="font-size: 1.5rem;">7M+</div>
+                <div class="slide-metric-label" style="font-size: 0.7rem;">Registered Developers</div>
+              </div>
+              <div class="slide-metric-item" style="border-top: 3px solid var(--accent-purple); padding: 0.75rem;">
+                <div class="slide-metric-value" style="font-size: 1.5rem;">3,500+</div>
+                <div class="slide-metric-label" style="font-size: 0.7rem;">Real Devices & Browsers</div>
+              </div>
+              <div class="slide-metric-item" style="border-top: 3px solid var(--accent-teal); padding: 0.75rem;">
+                <div class="slide-metric-value" style="font-size: 1.5rem;">CI/CD</div>
+                <div class="slide-metric-label" style="font-size: 0.7rem;">Native Integrations</div>
+              </div>
+            </div>
+            <p class="slide-text" style="margin-top: 1rem; font-size: 0.85rem; font-style: italic; text-align: center; color: var(--text-primary);">
+              Enterprise teams do not need a new vendor setup; they simply enable accessibility triggers on their current fleet.
+            </p>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 5 of 9</span>
+            <span>Infrastructure Moat</span>
+          </div>
+        </div>
+
+        <!-- Slide 6: User Journeys: Current vs. Solution -->
+        <div class="slide-card" id="slide-6">
+          <header class="slide-header">
+            <span class="slide-label">User Journeys Comparison</span>
+            <span class="slide-branding">BrowserStack A11y</span>
+          </header>
+          <div class="slide-body">
+            <h2 class="slide-title">6. User Journeys: Current vs. Solution</h2>
+            <div class="slide-layout-split" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+              <div style="background: rgba(239, 68, 68, 0.02); border: 1.5px solid rgba(239, 68, 68, 0.15); border-radius: var(--border-radius); padding: 1.25rem;">
+                <strong style="color: var(--accent-red); text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 0.75rem;">Current Friction-Filled Loop:</strong>
+                <ol style="color: var(--text-secondary); font-size: 0.8rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 6px; line-height: 1.45;">
+                  <li><strong>Functional Test:</strong> Dev runs QA on BrowserStack.</li>
+                  <li><strong>Vendor Handoff:</strong> Package build for external testing.</li>
+                  <li><strong>High SLA Wait:</strong> Wait days/weeks for vendor audit.</li>
+                  <li><strong>PDF Checklist:</strong> Receive static WCAG report PDF.</li>
+                  <li><strong>Tedious Manual Fixes:</strong> Reconstruct context to apply fixes.</li>
+                </ol>
+              </div>
+              <div style="background: rgba(16, 185, 129, 0.02); border: 1.5px solid rgba(16, 185, 129, 0.15); border-radius: var(--border-radius); padding: 1.25rem;">
+                <strong style="color: var(--accent-teal); text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 0.75rem;">New Seamless Solution:</strong>
+                <ul class="slide-bullet-list" style="margin-top: 0; font-size: 0.8rem; line-height: 1.45; display: flex; flex-direction: column; gap: 6px;">
+                  <li style="margin-bottom: 0; padding-left: 1.25rem;"><strong>Adjacent Testing Layer:</strong> Runs automatically with QA tests.</li>
+                  <li style="margin-bottom: 0; padding-left: 1.25rem;"><strong>Real-Time Alerts:</strong> Flags issues in the console instantly.</li>
+                  <li style="margin-bottom: 0; padding-left: 1.25rem;"><strong>Zero SLA Delay:</strong> No waiting for external audits.</li>
+                  <li style="margin-bottom: 0; padding-left: 1.25rem;"><strong>Auto-Remediation:</strong> AI suggests line-of-code corrections.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 6 of 9</span>
+            <span>Developer Journey</span>
+          </div>
+        </div>
+
+        <!-- Slide 7: The Path Forward (Phased Roadmap) -->
+        <div class="slide-card" id="slide-7">
           <header class="slide-header">
             <span class="slide-label">The Roadmap</span>
             <span class="slide-branding">BrowserStack A11y</span>
           </header>
           <div class="slide-body">
-            <h2 class="slide-title">10. MVP & Phased Roadmap Plan</h2>
-            <div class="slide-layout-columns" style="grid-template-columns: 1fr 1fr; align-items: start;">
+            <h2 class="slide-title">7. The Path Forward (Roadmap & MVP)</h2>
+            <div class="slide-layout-columns" style="grid-template-columns: 1fr 1fr; align-items: start; gap: 1.5rem;">
               <div>
-                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; font-size: 0.95rem;">
-                  Phase 1: Automated DOM Auto-Scans (MVP)
+                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; font-size: 0.9rem;">
+                  Phase 1: Scans (MVP)
                 </p>
-                <p class="slide-text" style="font-size: 0.85rem; margin-bottom: 1rem; color: var(--text-secondary);">
-                  Deliver fast, low-friction automated check gates inside Jenkins / GitHub pipelines using axe cores.
+                <p class="slide-text" style="font-size: 0.8rem; margin-bottom: 0.75rem; color: var(--text-secondary);">
+                  Deliver fast, low-friction automated check gates inside pipeline runners using axe core scanners.
                 </p>
-                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; font-size: 0.95rem;">
-                  Phase 2: Real-Device Screen Reader Cloud
+                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; font-size: 0.9rem;">
+                  Phase 2: Screen Reader Cloud
                 </p>
-                <p class="slide-text" style="font-size: 0.85rem; color: var(--text-secondary);">
-                  Integrate NVDA, JAWS, and VoiceOver audio verification layers into live real-device testing sessions.
+                <p class="slide-text" style="font-size: 0.8rem; color: var(--text-secondary);">
+                  Integrate virtual desktop screen reader audio layers (NVDA, JAWS) inside live real-device sessions.
                 </p>
               </div>
               <div>
-                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; font-size: 0.95rem;">
-                  Phase 3: AI-Assisted Auto-Remediation
+                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; font-size: 0.9rem;">
+                  Phase 3: AI-Assisted Remediation
                 </p>
-                <p class="slide-text" style="font-size: 0.85rem; margin-bottom: 1rem; color: var(--text-secondary);">
-                  Detect bugs and automatically generate GitHub PR code corrections in developer logs.
+                <p class="slide-text" style="font-size: 0.8rem; margin-bottom: 0.75rem; color: var(--text-secondary);">
+                  Detect rendering faults and auto-generate pull request code patches directly in developer logs.
                 </p>
-                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; font-size: 0.95rem;">
-                  Phase 4: Enterprise Audit & Legal Reporting
+                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; font-size: 0.9rem;">
+                  Phase 4: Enterprise Compliance Reporting
                 </p>
-                <p class="slide-text" style="font-size: 0.85rem; color: var(--text-secondary);">
-                  Launch legal-grade compliance reports and executive dashboards for Chief Compliance Officers.
+                <p class="slide-text" style="font-size: 0.8rem; color: var(--text-secondary);">
+                  Build compliance dashboards and legal-grade WCAG auditing reports for executive leadership.
                 </p>
               </div>
             </div>
           </div>
           <div class="slide-footer">
-            <span>Slide 10 of 12</span>
-            <span>Phased Execution</span>
+            <span>Slide 7 of 9</span>
+            <span>Phased Roadmap</span>
           </div>
         </div>
 
-        <!-- Slide 11: Strategic North Star Metrics -->
-        <div class="slide-card" id="slide-11">
+        <!-- Slide 8: Strategic North Star Metrics -->
+        <div class="slide-card" id="slide-8">
           <header class="slide-header">
             <span class="slide-label">Measuring Success</span>
             <span class="slide-branding">BrowserStack A11y</span>
           </header>
           <div class="slide-body">
-            <h2 class="slide-title">11. Strategic North Star Metrics</h2>
-            <p class="slide-text" style="margin-bottom: 1.5rem;">
-              To track the performance, adoption, and customer value of BrowserStack's accessibility rollout, we will monitor four key metrics:
+            <h2 class="slide-title">8. Strategic North Star Metrics</h2>
+            <p class="slide-text" style="margin-bottom: 1.25rem; font-size: 0.9rem;">
+              To track the performance, adoption, and customer value of BrowserStack's accessibility rollout:
             </p>
             <div class="slide-metric-strip" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
-              <div class="slide-metric-item" style="border-top: 3px solid var(--brand-blue);">
-                <div class="slide-metric-value">>25%</div>
-                <div class="slide-metric-label">Developer Adoption</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">% of active accounts running automated scans in Year 1</div>
+              <div class="slide-metric-item" style="border-top: 3px solid var(--brand-blue); padding: 0.8rem;">
+                <div class="slide-metric-value" style="font-size: 1.4rem;">>25%</div>
+                <div class="slide-metric-label" style="font-size: 0.75rem;">Developer Adoption</div>
+                <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 4px;">% of active accounts in Year 1</div>
               </div>
-              <div class="slide-metric-item" style="border-top: 3px solid var(--accent-teal);">
-                <div class="slide-metric-value">&lt;2 Hours</div>
-                <div class="slide-metric-label">Time-to-Remediation (TTR)</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Reduced from 14-day SLA via AI-suggested code patches</div>
+              <div class="slide-metric-item" style="border-top: 3px solid var(--accent-teal); padding: 0.8rem;">
+                <div class="slide-metric-value" style="font-size: 1.4rem;">&lt;2 Hours</div>
+                <div class="slide-metric-label" style="font-size: 0.75rem;">Time-to-Remediation</div>
+                <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 4px;">Reduced from 14-day vendor SLA</div>
               </div>
-              <div class="slide-metric-item" style="border-top: 3px solid var(--accent-orange);">
-                <div class="slide-metric-value">60%</div>
-                <div class="slide-metric-label">Automated Defect Coverage</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Percentage of release-blocking errors caught pre-release</div>
+              <div class="slide-metric-item" style="border-top: 3px solid var(--accent-orange); padding: 0.8rem;">
+                <div class="slide-metric-value" style="font-size: 1.4rem;">60%</div>
+                <div class="slide-metric-label" style="font-size: 0.75rem;">Defect Coverage</div>
+                <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 4px;">Catch failures pre-production</div>
               </div>
             </div>
-            <p class="slide-text" style="font-size: 0.95rem; font-style: italic; text-align: center; color: var(--text-primary); margin-top: 1.5rem;">
-              Additionally, we will track <strong>ARPU (Average Revenue Per User) Expansion</strong> to measure incremental subscription growth from the accessibility test cloud tier.
+            <p class="slide-text" style="font-size: 0.85rem; font-style: italic; text-align: center; color: var(--text-primary); margin-top: 1rem;">
+              Additionally, we will track <strong>ARPU Expansion</strong> to measure incremental subscription revenue.
             </p>
           </div>
           <div class="slide-footer">
-            <span>Slide 11 of 12</span>
+            <span>Slide 8 of 9</span>
             <span>Success Metrics</span>
           </div>
         </div>
 
-        <!-- Slide 12: Sources & References -->
-        <div class="slide-card" id="slide-12">
+        <!-- Slide 9: Sources & References -->
+        <div class="slide-card" id="slide-9">
           <header class="slide-header">
             <span class="slide-label">References</span>
             <span class="slide-branding">BrowserStack A11y</span>
           </header>
           <div class="slide-body">
-            <h2 class="slide-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Strategic Sources & Citations</h2>
+            <h2 class="slide-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">9. Strategic Sources & Citations</h2>
             <p class="slide-text" style="font-size: 0.9rem; margin-bottom: 1rem;">
               This proposal is backed by rigorous industry research, company data, and market metrics:
             </p>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.78rem; color: var(--text-secondary);">
-              <div>1. <strong>BrowserStack</strong>: Cross-Browser real-device infrastructure cloud</div>
-              <div>2. <strong>BrowserStack</strong>: AI Era Platform Press Release</div>
-              <div>3. <strong>ThePrint</strong>: Comprehensive Test Platform highlights</div>
-              <div>4. <strong>Mordor Intelligence</strong>: Market Size & Growth to 2031</div>
-              <div>5. <strong>Straits Research</strong>: Market Size & Share reports</div>
-              <div>6. <strong>BarrierBreak</strong>: Selecting Accessibility platforms</div>
-              <div>7. <strong>Digital.ai</strong>: Why compliance alone fails to resolve UX gaps</div>
-              <div>8. <strong>Deque Systems</strong>: axe automated core audit reports</div>
-              <div>9. <strong>DevOps.com</strong>: Manual testing pipeline blockers</div>
-              <div>10. <strong>W3C</strong>: Web Content Accessibility Guidelines 2.2</div>
-              <div>11. <strong>Inviqa</strong>: Engineering solutions for accessibility</div>
-              <div>12. <strong>Cerovac</strong>: Analyzing workflow accessibility gaps</div>
+              <div>1. <strong><a href="https://www.browserstack.com" target="_blank" style="color: var(--brand-blue); text-decoration: none;">BrowserStack</a></strong>: Cross-Browser real-device infrastructure cloud</div>
+              <div>2. <strong><a href="https://www.prnewswire.com/news-releases/browserstack-unveils-comprehensive-test-platform-to-transform-software-testing-in-the-ai-era-302388056.html" target="_blank" style="color: var(--brand-blue); text-decoration: none;">BrowserStack</a></strong>: AI Era Platform Press Release</div>
+              <div>3. <strong><a href="https://theprint.in" target="_blank" style="color: var(--brand-blue); text-decoration: none;">ThePrint</a></strong>: Comprehensive Test Platform highlights</div>
+              <div>4. <strong><a href="https://www.mordorintelligence.com/industry-reports/digital-accessibility-software-market" target="_blank" style="color: var(--brand-blue); text-decoration: none;">Mordor Intelligence</a></strong>: Market Size & Growth to 2031</div>
+              <div>5. <strong><a href="https://straitsresearch.com/report/digital-accessibility-market" target="_blank" style="color: var(--brand-blue); text-decoration: none;">Straits Research</a></strong>: Market Size & Share reports</div>
+              <div>6. <strong><a href="https://www.barrierbreak.com" target="_blank" style="color: var(--brand-blue); text-decoration: none;">BarrierBreak</a></strong>: Selecting Accessibility platforms</div>
+              <div>7. <strong><a href="https://digital.ai" target="_blank" style="color: var(--brand-blue); text-decoration: none;">Digital.ai</a></strong>: Why compliance alone fails to resolve UX gaps</div>
+              <div>8. <strong><a href="https://www.deque.com" target="_blank" style="color: var(--brand-blue); text-decoration: none;">Deque Systems</a></strong>: axe automated core audit reports</div>
+              <div>9. <strong><a href="https://devops.com" target="_blank" style="color: var(--brand-blue); text-decoration: none;">DevOps.com</a></strong>: Manual testing pipeline blockers</div>
+              <div>10. <strong><a href="https://www.w3.org/TR/WCAG22/" target="_blank" style="color: var(--brand-blue); text-decoration: none;">W3C</a></strong>: Web Content Accessibility Guidelines 2.2</div>
+              <div>11. <strong><a href="https://inviqa.com" target="_blank" style="color: var(--brand-blue); text-decoration: none;">Inviqa</a></strong>: Engineering solutions for accessibility</div>
+              <div>12. <strong><a href="https://cerovac.com" target="_blank" style="color: var(--brand-blue); text-decoration: none;">Cerovac</a></strong>: Analyzing workflow accessibility gaps</div>
             </div>
-            <div style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--brand-blue); font-weight: 600;">
+            <div style="text-align: center; margin-top: 1.25rem; font-size: 0.82rem; color: var(--brand-blue); font-weight: 600;">
               Refer to strategy_document.md in the workspace for all 16 detailed citations.
             </div>
           </div>
           <div class="slide-footer">
-            <span>Slide 12 of 12</span>
+            <span>Slide 9 of 9</span>
             <span>Sources</span>
           </div>
         </div>
@@ -2086,15 +2006,12 @@
           <div class="progress-dot" onclick="goToSlide(7)"></div>
           <div class="progress-dot" onclick="goToSlide(8)"></div>
           <div class="progress-dot" onclick="goToSlide(9)"></div>
-          <div class="progress-dot" onclick="goToSlide(10)"></div>
-          <div class="progress-dot" onclick="goToSlide(11)"></div>
-          <div class="progress-dot" onclick="goToSlide(12)"></div>
         </div>
 
         <button class="nav-circle-btn" id="next-slide-btn" onclick="changeSlide(1)" aria-label="Next slide">→</button>
       </div>
 
-      <div class="slide-counter" id="slide-num-label">1 / 12</div>
+      <div class="slide-counter" id="slide-num-label">1 / 9</div>
       
       <!-- Keyboard Help -->
       <div class="keyboard-hint">
@@ -2139,7 +2056,7 @@
 
     // Presentation Slide Logic
     let currentSlide = 1;
-    const totalSlides = 12;
+    const totalSlides = 9;
 
     function goToSlide(slideNum) {
       if (slideNum < 1 || slideNum > totalSlides) return;
@@ -2194,13 +2111,11 @@
       const sections = document.querySelectorAll('.doc-section');
       const tocItems = {
         'doc-title': document.getElementById('toc-intro'),
-        'sec-hook': document.getElementById('toc-hook'),
-        'sec-journey': document.getElementById('toc-journey'),
-        'sec-thesis': document.getElementById('toc-thesis'),
         'sec-market': document.getElementById('toc-market'),
-        'sec-lens': document.getElementById('toc-lens'),
         'sec-swot': document.getElementById('toc-swot'),
         'sec-whitespace': document.getElementById('toc-whitespace'),
+        'sec-thesis': document.getElementById('toc-thesis'),
+        'sec-journey': document.getElementById('toc-journey'),
         'sec-path': document.getElementById('toc-path'),
         'sec-metrics': document.getElementById('toc-metrics'),
         'sec-sources': document.getElementById('toc-sources')
