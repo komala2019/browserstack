@@ -945,6 +945,165 @@
       }
     }
 
+    @media (max-width: 768px) {
+      /* Header mobile responsive styling */
+      .app-header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 1rem;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .brand-logo {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+      }
+      
+      .brand-badge {
+        display: none; /* Hide badge on mobile to save horizontal space */
+      }
+      
+      .view-controls {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .tab-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        gap: 6px;
+      }
+
+      .action-group {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
+
+      /* Document View Adjustments */
+      .doc-main-title {
+        font-size: 2.2rem;
+      }
+      
+      .doc-title-section h2 {
+        font-size: 1.6rem !important;
+      }
+
+      .doc-section h2 {
+        font-size: 1.5rem;
+      }
+      
+      .doc-section p {
+        font-size: 0.95rem;
+      }
+      
+      .lead-paragraph {
+        font-size: 1.05rem;
+      }
+
+      /* Presentation View Adjustments */
+      .presentation-container {
+        height: auto;
+        min-height: calc(100vh - 180px);
+        padding: 1.5rem 0;
+      }
+
+      .presentation-viewport {
+        height: 520px;
+        width: 95%;
+      }
+
+      .slide-card {
+        padding: 1.5rem;
+        overflow-y: auto; /* Allow scroll inside slide cards on mobile */
+      }
+
+      .slide-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .slide-text {
+        font-size: 0.95rem;
+      }
+
+      .slide-bullet-list li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .slide-metric-strip {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .slide-metric-item {
+        padding: 0.6rem;
+      }
+
+      .slide-metric-value {
+        font-size: 1.4rem;
+      }
+
+      .slide-layout-columns {
+        align-items: stretch;
+      }
+
+      .keyboard-hint {
+        display: none; /* Keyboard controls not relevant/visible on mobile */
+      }
+
+      .title-slide-title {
+        font-size: 1.8rem;
+      }
+
+      .title-slide-sub {
+        font-size: 1.1rem;
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .doc-main-title {
+        font-size: 1.8rem;
+      }
+      
+      .doc-title-section h2 {
+        font-size: 1.3rem !important;
+      }
+
+      .doc-meta {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .presentation-viewport {
+        height: 480px;
+      }
+
+      .slide-title {
+        font-size: 1.25rem;
+      }
+
+      .title-slide-title {
+        font-size: 1.5rem;
+      }
+      
+      .tab-btn {
+        font-size: 0.75rem;
+        padding: 6px 8px;
+      }
+    }
+
     /* =========================================
        PRINT / PDF STYLES
        ========================================= */
