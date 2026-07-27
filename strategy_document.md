@@ -1,6 +1,5 @@
 # Strategic Proposal: The Developer-First Wedge
 ## Transforming Digital Accessibility at BrowserStack
-
 ---
 
 ### Executive Summary
