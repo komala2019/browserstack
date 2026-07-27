@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrowserStack Strategy: The Developer-First Wedge for Digital Accessibility</title>
+  <meta name="description" content="A strategic proposal for BrowserStack to pivot digital accessibility testing from a compliance chore to a developer-velocity metric.">
+  
+  <!-- Font Integration -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* CSS Variables & Theme Definition */
+    :root {
+      --bg-dark: #090D16;
+      --bg-card: #121824;
+      --bg-card-hover: #192235;
+      --border-color: #232E42;
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      
+      /* BrowserStack Inspired Brand Palette */
+      --brand-blue: #2980b9;
+      --brand-blue-glow: rgba(41, 128, 185, 0.15);
+      --brand-orange: #e67e22;
+      --brand-orange-glow: rgba(230, 126, 34, 0.15);
+      
+      /* Accent Colors */
+      --accent-purple: #8B5CF6;
+      --accent-teal: #10B981;
+      --accent-red: #EF4444;
+      --accent-amber: #F59E0B;
+      
+      --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      --gradient-accent: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+      --gradient-orange: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+      
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --border-radius: 12px;
+      --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Core Styles & Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Application Shell */
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 13, 22, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition-smooth);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--gradient-primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #FFFFFF, var(--text-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(139, 92, 246, 0.15);
+      color: var(--accent-purple);
+      padding: 2px 8px;
+      border-radius: 20px;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Tab Controls */
+    .view-controls {
+      display: flex;
+      background: #030712;
+      padding: 4px;
+      border-radius: 30px;
+      border: 1px solid var(--border-color);
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .tab-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .tab-btn.active {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-color);
+    }
+
+    .action-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--text-muted);
+    }
+
+    /* Main View Containers */
+    .view-container {
+      display: none;
+      min-height: calc(100vh - 65px);
+    }
+
+    .view-container.active {
+      display: block;
+    }
+
+    /* =========================================
+       DOCUMENT VIEW STYLES
+       ========================================= */
+    .doc-layout {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3.5rem;
+    }
+
+    /* Sidebar Navigation */
+    .doc-sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+
+    .sidebar-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc-item a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      border-left: 2px solid transparent;
+      display: block;
+      transition: var(--transition-smooth);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .toc-item a:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.02);
+      border-left-color: var(--text-muted);
+    }
+
+    .toc-item.active a {
+      color: var(--text-primary);
+      font-weight: 600;
+      background: rgba(59, 130, 246, 0.05);
+      border-left-color: var(--brand-blue);
+    }
+
+    /* Strategy Content Area */
+    .doc-content {
+      max-width: 850px;
+    }
+
+    .doc-section {
+      margin-bottom: 4.5rem;
+      scroll-margin-top: 110px;
+    }
+
+    .doc-section:not(:last-child) {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 3.5rem;
+    }
+
+    .doc-title-section {
+      margin-bottom: 3rem;
+    }
+
+    .doc-category {
+      color: var(--brand-blue);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    .doc-main-title {
+      font-size: 2.8rem;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .doc-meta {
+      display: flex;
+      gap: 20px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 10px 0;
+      margin-top: 1.5rem;
+    }
+
+    .doc-section h2 {
+      font-size: 1.85rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-primary);
+    }
+
+    .doc-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--brand-blue);
+      border-radius: 2px;
+    }
+
+    .doc-section p {
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .lead-paragraph {
+      font-size: 1.2rem;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Stat Cards Dashboard */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+
+    .metric-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.4);
+      background-color: var(--bg-card-hover);
+      box-shadow: var(--shadow-premium);
+    }
+
+    .metric-card:hover::before {
+      opacity: 1;
+    }
+
+    .metric-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .metric-card.accent-teal .metric-value {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+    }
+    
+    .metric-card.accent-orange .metric-value {
+      background: var(--gradient-orange);
+      -webkit-background-clip: text;
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Highlight callouts */
+    .callout-box {
+      background: rgba(59, 130, 246, 0.06);
+      border-left: 4px solid var(--brand-blue);
+      padding: 1.5rem;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      margin: 2rem 0;
+    }
+
+    .callout-box p {
+      margin: 0;
+      color: var(--text-primary);
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    /* Feature/List Grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition-smooth);
+    }
+
+    .feature-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      background-color: var(--bg-card-hover);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--brand-blue);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .feature-title {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .feature-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* SWOT Matrix Layout */
+    .swot-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 2.5rem 0;
+    }
+
+    .swot-quadrant {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 1.75rem;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .swot-quadrant:hover {
+      transform: scale(1.01);
+      box-shadow: var(--shadow-premium);
+    }
+
+    .swot-quadrant.strengths { border-top: 4px solid var(--accent-teal); }
+    .swot-quadrant.weaknesses { border-top: 4px solid var(--accent-amber); }
+    .swot-quadrant.opportunities { border-top: 4px solid var(--brand-blue); }
+    .swot-quadrant.threats { border-top: 4px solid var(--accent-red); }
+
+    .swot-header {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .swot-badge {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .strengths .swot-badge { background: rgba(16, 185, 129, 0.1); color: var(--accent-teal); }
+    .weaknesses .swot-badge { background: rgba(245, 158, 11, 0.1); color: var(--accent-amber); }
+    .opportunities .swot-badge { background: rgba(59, 130, 246, 0.1); color: var(--brand-blue); }
+    .threats .swot-badge { background: rgba(239, 68, 68, 0.1); color: var(--accent-red); }
+
+    .swot-list {
+      list-style-type: none;
+    }
+
+    .swot-list li {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .swot-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+    }
+    
+    .strengths .swot-list li::before { color: var(--accent-teal); }
+    .weaknesses .swot-list li::before { color: var(--accent-amber); }
+    .opportunities .swot-list li::before { color: var(--brand-blue); }
+    .threats .swot-list li::before { color: var(--accent-red); }
+
+    /* Source citations list */
+    .sources-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 1.5rem;
+    }
+
+    .source-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      display: flex;
+      gap: 15px;
+      color: var(--text-secondary);
+      transition: var(--transition-smooth);
+    }
+
+    .source-item:hover {
+      border-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .source-num {
+      font-weight: 700;
+      color: var(--brand-blue);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .source-content {
+      line-height: 1.4;
+    }
+
+    .source-content a {
+      color: var(--text-primary);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--brand-blue);
+    }
+
+    .source-content a:hover {
+      color: var(--brand-blue);
+    }
+
+    /* =========================================
+       PRESENTATION VIEW STYLES
+       ========================================= */
+    .presentation-container {
+      background-color: #030712;
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 65px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .presentation-viewport {
+      width: 90%;
+      max-width: 1100px;
+      height: 70%;
+      max-height: 650px;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    /* Slide Card */
+    .slide-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      padding: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      transform: translate3d(0, 50px, -100px) rotateX(-5deg);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    /* Active Slide */
+    .slide-card.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translate3d(0, 0, 0) rotateX(0deg);
+      z-index: 10;
+    }
+
+    /* Slide Header */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 1rem;
+    }
+
+    .slide-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--brand-blue);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slide-label::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+    }
+
+    .slide-branding {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* Slide Body & Content Layouts */
+    .slide-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.5rem 0;
+    }
+
+    .slide-title {
+      font-size: 2.3rem;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(to right, #FFFFFF, var(--text-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .slide-text {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    .slide-layout-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .slide-layout-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    /* Slide Footer */
+    .slide-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Title Slide Specific */
+    .slide-card.title-slide {
+      background: radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 50%), 
+                  radial-gradient(circle at 10% 80%, rgba(139, 92, 246, 0.1) 0%, rgba(0,0,0,0) 50%),
+                  var(--bg-card);
+      justify-content: center;
+      text-align: center;
+    }
+
+    .slide-card.title-slide .slide-body {
+      align-items: center;
+    }
+
+    .title-slide-badge {
+      background: linear-gradient(90deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15));
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: var(--text-primary);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+
+    .title-slide-title {
+      font-size: 3.2rem;
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 50%, #3B82F6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      max-width: 900px;
+    }
+
+    .title-slide-sub {
+      color: var(--text-secondary);
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      max-width: 700px;
+    }
+
+    /* Slide Controls Overlay */
+    .presentation-controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 2rem;
+      z-index: 10;
+    }
+
+    .nav-circle-btn {
+      width: 48px;
+      height: 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .nav-circle-btn:hover {
+      border-color: rgba(255,255,255,0.2);
+      background-color: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    
+    .nav-circle-btn:active {
+      transform: translateY(0);
+    }
+
+    .slide-progress-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border-color);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .progress-dot.active {
+      background: var(--brand-blue);
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+      transform: scale(1.2);
+    }
+
+    .slide-counter {
+      color: var(--text-muted);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    /* Presentation Visual Elements */
+    .slide-bullet-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .slide-bullet-list li {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 0.85rem;
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    .slide-bullet-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+    }
+
+    .slide-metric-strip {
+      display: flex;
+      gap: 20px;
+      margin-top: 1rem;
+    }
+
+    .slide-metric-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 1rem;
+      flex: 1;
+      text-align: center;
+    }
+
+    .slide-metric-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-primary);
+    }
+
+    .slide-metric-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    .keyboard-hint {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.03);
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kbd-btn {
+      background: #1e293b;
+      padding: 1px 5px;
+      border-radius: 3px;
+      border: 1px solid #475569;
+      font-family: monospace;
+      color: var(--text-secondary);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 968px) {
+      .doc-layout {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+      }
+      .doc-sidebar {
+        display: none;
+      }
+      .slide-layout-columns, .slide-layout-split, .swot-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .slide-card {
+        padding: 2rem;
+      }
+      .slide-title {
+        font-size: 1.8rem;
+      }
+      .title-slide-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* =========================================
+       PRINT / PDF STYLES
+       ========================================= */
+    @media print {
+      body {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+      }
+
+      .app-header, .doc-sidebar, .presentation-controls, .keyboard-hint, .view-controls {
+        display: none !important;
+      }
+
+      /* When printing the document */
+      #document-view.active {
+        display: block !important;
+      }
+
+      #document-view.active .doc-layout {
+        display: block !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      #document-view.active .doc-content {
+        max-width: 100% !important;
+      }
+
+      #document-view.active .doc-section {
+        page-break-inside: avoid;
+        border-bottom: 1px solid #E2E8F0 !important;
+        margin-bottom: 2rem !important;
+        padding-bottom: 2rem !important;
+      }
+
+      #document-view.active .metric-card, 
+      #document-view.active .swot-quadrant,
+      #document-view.active .feature-card,
+      #document-view.active .source-item {
+        background-color: #F8FAFC !important;
+        border: 1px solid #E2E8F0 !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+      }
+
+      /* When printing slides as PDF */
+      #presentation-view.active {
+        display: block !important;
+        height: auto !important;
+        background: transparent !important;
+      }
+
+      #presentation-view.active .presentation-container {
+        background: transparent !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+
+      #presentation-view.active .presentation-viewport {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        display: block !important;
+      }
+
+      #presentation-view.active .slide-card {
+        position: relative !important;
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        width: 100% !important;
+        height: 600px !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        background: #090D16 !important; /* Keep premium dark slide aesthetics for slide PDF exports */
+        color: #FFFFFF !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        border: 1px solid #232E42 !important;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <a href="#" class="brand-logo" id="logo-link">
+      <div class="logo-icon">B</div>
+      <span class="brand-name">BrowserStack</span>
+      <span class="brand-badge">A11y Strategy</span>
+    </a>
+    
+    <!-- Navigation Tabs -->
+    <div class="view-controls">
+      <button class="tab-btn active" id="tab-doc" onclick="switchView('document')">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        Strategy Document
+      </button>
+      <button class="tab-btn" id="tab-ppt" onclick="switchView('presentation')">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 4v16M17 4v16M3 8h18M3 16h18"></path></svg>
+        Slide Presentation (PPT)
+      </button>
+    </div>
+
+    <!-- Export Action -->
+    <div class="action-group">
+      <button class="btn-secondary" id="btn-print" onclick="window.print()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+        Print / Export PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================
+       DOCUMENT VIEW
+       ========================================= -->
+  <main class="view-container active" id="document-view">
+    <div class="doc-layout">
+      <!-- Sticky Sidebar Navigation -->
+      <aside class="doc-sidebar">
+        <div class="sidebar-title">Strategy Outline</div>
+        <ul class="toc-list">
+          <li class="toc-item active" id="toc-intro"><a href="#doc-title">Title & Overview</a></li>
+          <li class="toc-item" id="toc-hook"><a href="#sec-hook">1. The Invisible Wall</a></li>
+          <li class="toc-item" id="toc-thesis"><a href="#sec-thesis">2. Why BrowserStack?</a></li>
+          <li class="toc-item" id="toc-market"><a href="#sec-market">3. Market Transition</a></li>
+          <li class="toc-item" id="toc-lens"><a href="#sec-lens">4. Strategic Lens</a></li>
+          <li class="toc-item" id="toc-swot"><a href="#sec-swot">5. SWOT Analysis</a></li>
+          <li class="toc-item" id="toc-whitespace"><a href="#sec-whitespace">6. The Whitespace Moat</a></li>
+          <li class="toc-item" id="toc-path"><a href="#sec-path">7. The Path Forward</a></li>
+          <li class="toc-item" id="toc-sources"><a href="#sec-sources">Sources & References</a></li>
+        </ul>
+      </aside>
+
+      <!-- Detailed Strategy Document -->
+      <article class="doc-content">
+        
+        <!-- Header Section -->
+        <header class="doc-title-section" id="doc-title">
+          <span class="doc-category">Internal Strategic Proposal</span>
+          <h1 class="doc-main-title">THE DEVELOPER-FIRST WEDGE:</h1>
+          <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--brand-blue) 0%, var(--accent-purple) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Transforming Digital Accessibility</h2>
+          
+          <div class="doc-meta">
+            <span><strong>Author:</strong> Strategic Product Initiatives</span>
+            <span><strong>Target Release:</strong> FY 2026 Strategy</span>
+            <span><strong>Target Audience:</strong> Executive Leadership</span>
+          </div>
+        </header>
+
+        <p class="lead-paragraph">
+          This document details BrowserStack's entry strategy into the Digital Accessibility market. Rather than building a standalone, compliance-first advisory platform, BrowserStack is uniquely positioned to execute a <strong>"Developer-First Wedge"</strong>—embedding accessibility testing directly into the standard release workflow. By shifting from audit-based dashboards to code-level automated remediation, we leverage our existing infrastructure to drive developer adoption and velocity.
+        </p>
+
+        <!-- Section 1: The Invisible Wall -->
+        <section class="doc-section" id="sec-hook">
+          <h2>1. The Hook: The Invisible Wall</h2>
+          <p>
+            For the modern software developer, digital accessibility (a11y) represents an invisible wall. It is frequently viewed as a complex chore, an administrative bottleneck, or a final compliance checklist item that threatens to stall release cycles. Currently, accessibility is treated as a hurdle to overcome rather than a core metric of product quality.
+          </p>
+          <p>
+            This friction exists because traditional tools and processes focus on broad legal governance. They compile high-level metrics for compliance officers rather than addressing the immediate code-level reality of the release workflow. The result is a broken loop where issues are identified late, context is lost, and developers face a wall of backlog tasks with little guidance on how to fix them.
+          </p>
+          <div class="callout-box">
+            <p>"Accessibility fails not because developers don't care, but because the tools we give them are built for lawyers, not editors."</p>
+          </div>
+        </section>
+
+        <!-- Section 2: The Thesis: Why BrowserStack? -->
+        <section class="doc-section" id="sec-thesis">
+          <h2>2. The Thesis: Why BrowserStack?</h2>
+          <p>
+            BrowserStack’s opportunity lies in a fundamental pivot: <strong>moving from a "compliance-first" mindset to a "developer-velocity" mindset</strong>. By evaluating Digital Accessibility as an adjacent testing layer rather than a standalone siloed platform, we integrate seamlessly with how modern engineering teams build and deploy software.
+          </p>
+          
+          <p>
+            We possess an unmatched foundation that allows us to own this space immediately:
+          </p>
+          
+          <!-- Core Infrastructure Grid -->
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon">7M</div>
+              <h3 class="feature-title">7M+ Registered Users</h3>
+              <p class="feature-desc">Immediate distribution. We leverage an existing, deeply loyal developer base that already runs tests on BrowserStack daily.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon">3.5k</div>
+              <h3 class="feature-title">3,500+ Combinations</h3>
+              <p class="feature-desc">Real physical mobile devices and desktop browser instances. We test accessibility where real users experience it.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon">CI</div>
+              <h3 class="feature-title">Native Pipeline Integrations</h3>
+              <p class="feature-desc">Embedded in Jenkins, GitHub Actions, GitLab, CircleCI. Accessibility check triggers automatically on pull requests.</p>
+            </div>
+          </div>
+
+          <p>
+            We aren't just checking compliance boxes; we are enabling speed. By incorporating accessibility verification alongside functional cross-browser testing, we remove duplicate setups, reduce script maintenance, and provide a unified source of truth.
+          </p>
+        </section>
+
+        <!-- Section 3: The Market Story: From Audit to Automation -->
+        <section class="doc-section" id="sec-market">
+          <h2>3. The Market Story: From Audit to Automation</h2>
+          <p>
+            The digital accessibility landscape is shifting beneath us. The market—currently estimated between <strong>$0.85B and $1.75B</strong>—is rapidly moving away from periodic, manual third-party audits toward continuous, automated, developer-led monitoring. 
+          </p>
+
+          <!-- Metrics Dashboard -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-label">Projected TAM (2026)</div>
+              <div class="metric-value">$1.9 Billion</div>
+              <div class="metric-desc">Growth driven by shifting budgets toward engineering.</div>
+            </div>
+            
+            <div class="metric-card accent-teal">
+              <div class="metric-label">Market CAGR</div>
+              <div class="metric-value">6% - 12%</div>
+              <div class="metric-desc">Accelerating due to regulatory deadlines in US & EU.</div>
+            </div>
+            
+            <div class="metric-card accent-orange">
+              <div class="metric-label">North American Share</div>
+              <div class="metric-value">~43%</div>
+              <div class="metric-desc">Largest regional share driven by ADA Title III litigation.</div>
+            </div>
+          </div>
+
+          <p>
+            This momentum points to a TAM of up to <strong>$1.9B by 2026</strong>. The growth is fueled by a structural transition: enterprise teams are no longer satisfied with static audit reports that go stale the minute new code is committed. Instead, they require framework-aware remediation tools that can scan, report, and suggest patches inside their component libraries.
+          </p>
+        </section>
+
+        <!-- Section 4: The Strategic Lens: Navigating the Need -->
+        <section class="doc-section" id="sec-lens">
+          <h2>4. The Strategic Lens: Navigating the Need</h2>
+          <p>
+            To win, we must comprehend the customer situation deeply. Enterprise digital product teams are under immense regulatory pressure (especially with the European Accessibility Act enforcement and ADA Web updates in the US). However, they cannot afford to sacrifice release velocity. 
+          </p>
+          <p>
+            By identifying these high-growth customers, we observe a desperate need for automation that carries the credibility of real-device validation. Incumbents offer automated scanning on emulators or static HTML, which misses dynamic Javascript state changes. We cut through the noise of broad governance suites and provide the specific automated scans and assistive-technology screen reader testing (NVDA, JAWS, VoiceOver) that developers actually need. We evaluate our success not by market entry alone, but by our ability to convert our massive user base into active accessibility advocates.
+          </p>
+        </section>
+
+        <!-- Section 5: SWOT Analysis -->
+        <section class="doc-section" id="sec-swot">
+          <h2>5. SWOT Analysis</h2>
+          <p>
+            A balanced evaluation of our strategic positioning reveals a clear path forward where our technical strengths offset our domain weaknesses:
+          </p>
+          
+          <div class="swot-container">
+            <div class="swot-quadrant strengths">
+              <div class="swot-header">
+                <h3>Strengths</h3>
+                <span class="swot-badge">Internal</span>
+              </div>
+              <ul class="swot-list">
+                <li>Large 7M+ user base of developers and QA engineers</li>
+                <li>Proven real-device infrastructure cloud</li>
+                <li>Native CI/CD integration and existing pipeline moats</li>
+                <li>High trust and brand equity in the testing space</li>
+              </ul>
+            </div>
+            
+            <div class="swot-quadrant weaknesses">
+              <div class="swot-header">
+                <h3>Weaknesses</h3>
+                <span class="swot-badge">Internal</span>
+              </div>
+              <ul class="swot-list">
+                <li>Limited compliance services and legal audit DNA</li>
+                <li>New category entrant competing against dedicated solutions</li>
+                <li>Historically focused on engineering teams, not legal officers</li>
+              </ul>
+            </div>
+            
+            <div class="swot-quadrant opportunities">
+              <div class="swot-header">
+                <h3>Opportunities</h3>
+                <span class="swot-badge">External</span>
+              </div>
+              <ul class="swot-list">
+                <li>High industry demand for "Shift-Left" quality gates</li>
+                <li>Fragmented market whitespace between audit and code fix</li>
+                <li>Using AI-assisted telemetry models to auto-remediate code</li>
+                <li>European Accessibility Act (EAA) compliance deadlines</li>
+              </ul>
+            </div>
+            
+            <div class="swot-quadrant threats">
+              <div class="swot-header">
+                <h3>Threats</h3>
+                <span class="swot-badge">External</span>
+              </div>
+              <ul class="swot-list">
+                <li>Pure-play vendors with long-established legal credibility</li>
+                <li>Consolidation of testing platforms acquiring small tools</li>
+                <li>Free/Open source scanner libraries capturing developer mindshare</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: The Battleground: Winning the Whitespace -->
+        <section class="doc-section" id="sec-whitespace">
+          <h2>6. The Battleground: Winning the Whitespace</h2>
+          <p>
+            The battleground is the <strong>"Whitespace"</strong>—the critical gap between finding an accessibility issue and fixing it. 
+          </p>
+          <p>
+            While pure-play vendors have established legal credibility and extensive consultant teams, they lack the native CI/CD integration and real-device infrastructure that BrowserStack commands. They can tell a company they are violating WCAG guidelines, but they cannot tell the developer which line of code to edit. 
+          </p>
+          <p>
+            Our strength is our infrastructure moat; our opportunity is the high demand for "Shift-Left" testing that automatically gates releases based on product health. We win where incumbents fail: by providing code-level remediation. Since we analyze the rendering pipeline directly in real devices, we can point to the exact React component, HTML tag, or CSS class causing the failure and suggest the precise fix. This turns a compliance finding into a prioritized, actionable developer ticket.
+          </p>
+        </section>
+
+        <!-- Section 7: The Path Forward: The Developer-First Wedge -->
+        <section class="doc-section" id="sec-path">
+          <h2>7. The Path Forward: The Developer-First Wedge</h2>
+          <p>
+            Our recommendation is clear: <strong>Enter the market as an integrated product layer, not a standalone suite.</strong> 
+          </p>
+          <p>
+            We must own the workflow gap by leveraging the browsers, devices, and pipelines where BrowserStack already leads. By providing the most reliable real-device validation and AI-assisted remediation, we become the default choice for every modern digital team. 
+          </p>
+          <p>
+            Our deployment roadmap centers around a phased wedge strategy:
+          </p>
+          
+          <div style="display: flex; flex-direction: column; gap: 12px; margin: 1.5rem 0;">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 12px 18px; border-radius: 6px;">
+              <strong>Phase 1: Automated Scanning</strong> — Release SDKs that auto-scan the DOM during existing selenium/cypress tests, returning rich components reports.
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 12px 18px; border-radius: 6px;">
+              <strong>Phase 2: Screen Reader cloud</strong> — Launch NVDA, JAWS and VoiceOver virtual desktop audio layers inside live browser testing sessions.
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 12px 18px; border-radius: 6px;">
+              <strong>Phase 3: AI Code Patching</strong> — Introduce AI-assisted telemetry that auto-generates pull-requests to fix simple issues (alt-tags, ARIA label bindings).
+            </div>
+          </div>
+          
+          <p>
+            Expansion into broader enterprise governance reports and legal audits will follow, but our wedge is, and always must be, the developer.
+          </p>
+        </section>
+
+        <!-- Sources Section -->
+        <section class="doc-section" id="sec-sources">
+          <h2>Sources & References</h2>
+          <p>This strategy report builds upon industry research, company product announcements, and market projections:</p>
+          
+          <ul class="sources-list">
+            <li class="source-item">
+              <span class="source-num">1</span>
+              <span class="source-content"><strong>BrowserStack</strong>: <a href="https://www.browserstack.com" target="_blank">Most Reliable App & Cross Browser Testing</a></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">2</span>
+              <span class="source-content"><strong>BrowserStack</strong>: <em>Unveils Comprehensive Test Platform to Transform Software Testing in the AI Era</em> (Press Release)</span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">3</span>
+              <span class="source-content"><strong>ThePrint</strong>: <em>BrowserStack Unveils Comprehensive Test Platform</em> (Media Coverage)</span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">4</span>
+              <span class="source-content"><strong>Mordor Intelligence</strong>: <em>Digital Accessibility Software Market Size & Growth to 2031</em></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">5</span>
+              <span class="source-content"><strong>Straits Research</strong>: <em>Digital Accessibility Market Size, Share, Growth, Analysis</em></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">6</span>
+              <span class="source-content"><strong>BarrierBreak</strong>: <em>What to Look for in a Digital Accessibility Platform</em></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">7</span>
+              <span class="source-content"><strong>Digital.ai</strong>: <em>The Accessibility Gap: Why Compliance Alone Isn't Enough</em></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">8</span>
+              <span class="source-content"><strong>Deque Systems</strong>: <em>Axe Auditor: Alleviating Manual Testing Pain Points</em></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">9</span>
+              <span class="source-content"><strong>DevOps.com</strong>: <em>Three Manual Accessibility Testing Pain Points</em></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">10</span>
+              <span class="source-content"><strong>W3C</strong>: <em>Web Content Accessibility Guidelines (WCAG) 2.2</em> (December 2023)</span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">11</span>
+              <span class="source-content"><strong>Inviqa</strong>: <em>Digital accessibility challenges (and how to solve them)</em></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">12</span>
+              <span class="source-content"><strong>Cerovac</strong>: <em>Mind the Accessibility Gaps</em></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">13</span>
+              <span class="source-content"><strong>Level Access</strong>: <em>Accessibility Testing Tools: Useful, When Used Properly</em></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">14</span>
+              <span class="source-content"><strong>Vispero</strong>: <em>Accessibility tools for developers and accessibility testing</em></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">15</span>
+              <span class="source-content"><strong>BrowserStack</strong>: <a href="https://www.browserstack.com/about" target="_blank">About Us</a></span>
+            </li>
+            <li class="source-item">
+              <span class="source-num">16</span>
+              <span class="source-content"><strong>YourStory</strong>: <em>BrowserStack introduces AI test platform to streamline software testing</em></span>
+            </li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <!-- =========================================
+       PRESENTATION VIEW (PPT)
+       ========================================= -->
+  <main class="view-container" id="presentation-view">
+    <div class="presentation-container">
+      <div class="presentation-viewport">
+        
+        <!-- Slide 1: Cover -->
+        <div class="slide-card title-slide active" id="slide-1">
+          <div class="slide-body">
+            <span class="title-slide-badge">Strategic Presentation</span>
+            <h1 class="title-slide-title">THE DEVELOPER-FIRST WEDGE</h1>
+            <p class="title-slide-sub">Transforming Digital Accessibility at BrowserStack</p>
+            <div style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">
+              Leveraging existing infrastructure & 7M+ user footprint to own the shift-left workflow gap.
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 1 of 9</span>
+            <span>BrowserStack Strategy Group</span>
+          </div>
+        </div>
+
+        <!-- Slide 2: The Hook -->
+        <div class="slide-card" id="slide-2">
+          <header class="slide-header">
+            <span class="slide-label">The Invisible Wall</span>
+            <span class="slide-branding">BrowserStack A11y</span>
+          </header>
+          <div class="slide-body">
+            <h2 class="slide-title">1. The Hook: Accessibility is an Invisible Wall</h2>
+            <div class="slide-layout-columns">
+              <div>
+                <p class="slide-text" style="margin-bottom: 1.5rem;">
+                  For modern developer teams, accessibility checks often feel like an administrative gate, forcing release delays:
+                </p>
+                <ul class="slide-bullet-list">
+                  <li><strong>A Compliance Checkbox:</strong> Typically treated as an afterthought in late stages.</li>
+                  <li><strong>Broad Governance Focus:</strong> Incumbent tools output legal audits rather than line-of-code bugs.</li>
+                  <li><strong>Process Friction:</strong> Delays delivery pipelines and pits developers against compliance officers.</li>
+                </ul>
+              </div>
+              <div style="background: rgba(239, 68, 68, 0.05); border: 1.5px dashed rgba(239, 68, 68, 0.2); border-radius: var(--border-radius); padding: 1.5rem; text-align: center;">
+                <span style="font-size: 3rem; color: var(--accent-red);">🛇</span>
+                <h4 style="margin: 0.5rem 0; font-size: 1.2rem; color: var(--text-primary);">Release Blocker</h4>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">Traditional audits create developer friction and stall releases.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 2 of 9</span>
+            <span>Strategic Pain Points</span>
+          </div>
+        </div>
+
+        <!-- Slide 3: Why BrowserStack? -->
+        <div class="slide-card" id="slide-3">
+          <header class="slide-header">
+            <span class="slide-label">Strategic Edge</span>
+            <span class="slide-branding">BrowserStack A11y</span>
+          </header>
+          <div class="slide-body">
+            <h2 class="slide-title">2. Thesis: Why BrowserStack Wins?</h2>
+            <p class="slide-text" style="margin-bottom: 1.5rem;">
+              We pivot the market by connecting digital accessibility testing with <strong>developer-velocity</strong>. Our existing infrastructure is our immediate moat:
+            </p>
+            <div class="slide-metric-strip">
+              <div class="slide-metric-item" style="border-top: 3px solid var(--brand-blue);">
+                <div class="slide-metric-value">7M+</div>
+                <div class="slide-metric-label">Registered Developers</div>
+              </div>
+              <div class="slide-metric-item" style="border-top: 3px solid var(--accent-purple);">
+                <div class="slide-metric-value">3,500+</div>
+                <div class="slide-metric-label">Device & Browser Fleet</div>
+              </div>
+              <div class="slide-metric-item" style="border-top: 3px solid var(--accent-teal);">
+                <div class="slide-metric-value">100%</div>
+                <div class="slide-metric-label">CI/CD Native Pipelines</div>
+              </div>
+            </div>
+            <p class="slide-text" style="margin-top: 1.5rem; font-size: 0.95rem; font-style: italic; text-align: center; color: var(--text-primary);">
+              Instead of adding another vendor, teams enable an adjacent layer on top of their current BrowserStack test suites.
+            </p>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 3 of 9</span>
+            <span>Infrastructure Moat</span>
+          </div>
+        </div>
+
+        <!-- Slide 4: Market Opportunity -->
+        <div class="slide-card" id="slide-4">
+          <header class="slide-header">
+            <span class="slide-label">Market Dynamics</span>
+            <span class="slide-branding">BrowserStack A11y</span>
+          </header>
+          <div class="slide-body">
+            <h2 class="slide-title">3. Market: Transition to Automation</h2>
+            <div class="slide-layout-split">
+              <div>
+                <p class="slide-text" style="margin-bottom: 1.25rem;">
+                  Budgets are shifting from slow third-party manual audits towards automated developer-led verification.
+                </p>
+                <ul class="slide-bullet-list">
+                  <li><strong>TAM Growth:</strong> Reaching up to <strong>$1.9B by 2026</strong>.</li>
+                  <li><strong>Market CAGRs:</strong> Expanding at <strong>6% to 12%</strong> annually.</li>
+                  <li><strong>Geographic Hub:</strong> North America owns <strong>~43%</strong> of global spend.</li>
+                </ul>
+              </div>
+              <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.5rem; display: flex; flex-direction: column; justify-content: center;">
+                <div style="margin-bottom: 1.25rem;">
+                  <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Current Market Range</div>
+                  <div style="font-size: 1.6rem; font-weight: 700; color: var(--text-primary);">$0.85B - $1.75B</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--brand-blue); text-transform: uppercase; font-weight: 700;">2026 Target TAM</div>
+                  <div style="font-size: 2.2rem; font-weight: 800; color: var(--brand-blue);">$1.9 Billion</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 4 of 9</span>
+            <span>Sizing & Trends</span>
+          </div>
+        </div>
+
+        <!-- Slide 5: The Strategic Lens -->
+        <div class="slide-card" id="slide-5">
+          <header class="slide-header">
+            <span class="slide-label">Strategic Lens</span>
+            <span class="slide-branding">BrowserStack A11y</span>
+          </header>
+          <div class="slide-body">
+            <h2 class="slide-title">4. Navigating the Need: Compliance + Speed</h2>
+            <div class="slide-layout-columns">
+              <div>
+                <p class="slide-text" style="font-size: 1.15rem; color: var(--text-primary); font-weight: 500; margin-bottom: 1rem;">
+                  Enterprise product teams are squeezed between regulatory pressure and release velocities.
+                </p>
+                <p class="slide-text" style="font-size: 0.95rem; margin-bottom: 1rem;">
+                  We provide the exact developer tools they need, with the credibility of real device hardware:
+                </p>
+                <ul class="slide-bullet-list" style="font-size: 0.95rem;">
+                  <li><strong>Fast Automated Scans:</strong> Integrated in PR gates to check rendering elements.</li>
+                  <li><strong>Assistive-Tech testing:</strong> Interactive screen-reader validation on physical devices.</li>
+                </ul>
+              </div>
+              <div style="background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: var(--border-radius); padding: 1.5rem; text-align: center;">
+                <span style="font-size: 1.5rem; color: var(--accent-purple); font-weight: bold; display: block; margin-bottom: 0.5rem;">Target</span>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.4;">
+                  Convert existing BrowserStack functional testers into Digital Accessibility advocates.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 5 of 9</span>
+            <span>Core Tension</span>
+          </div>
+        </div>
+
+        <!-- Slide 6: SWOT Analysis -->
+        <div class="slide-card" id="slide-6">
+          <header class="slide-header">
+            <span class="slide-label">SWOT Matrix</span>
+            <span class="slide-branding">BrowserStack A11y</span>
+          </header>
+          <div class="slide-body">
+            <h2 class="slide-title" style="margin-bottom: 1rem;">5. SWOT Analysis</h2>
+            <div class="slide-layout-split" style="gap: 1.25rem; font-size: 0.9rem;">
+              <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 12px;">
+                <div style="background: rgba(16, 185, 129, 0.03); border: 1px solid rgba(16, 185, 129, 0.2); border-left: 3px solid var(--accent-teal); padding: 10px; border-radius: 6px;">
+                  <strong style="color: var(--accent-teal); display: block; font-size: 0.8rem; text-transform: uppercase;">Strengths</strong>
+                  7M+ user base, unmatched real-device cloud, existing CI/CD infrastructure pipelines.
+                </div>
+                <div style="background: rgba(245, 158, 11, 0.03); border: 1px solid rgba(245, 158, 11, 0.2); border-left: 3px solid var(--accent-amber); padding: 10px; border-radius: 6px;">
+                  <strong style="color: var(--accent-amber); display: block; font-size: 0.8rem; text-transform: uppercase;">Weaknesses</strong>
+                  No historical compliance legal DNA; perceived as a general QA provider, not an auditor.
+                </div>
+              </div>
+              <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 12px;">
+                <div style="background: rgba(59, 130, 246, 0.03); border: 1px solid rgba(59, 130, 246, 0.2); border-left: 3px solid var(--brand-blue); padding: 10px; border-radius: 6px;">
+                  <strong style="color: var(--brand-blue); display: block; font-size: 0.8rem; text-transform: uppercase;">Opportunities</strong>
+                  Rising "Shift-Left" industry demand; fragmented vendor whitespace; AI-driven remediation.
+                </div>
+                <div style="background: rgba(239, 68, 68, 0.03); border: 1px solid rgba(239, 68, 68, 0.2); border-left: 3px solid var(--accent-red); padding: 10px; border-radius: 6px;">
+                  <strong style="color: var(--accent-red); display: block; font-size: 0.8rem; text-transform: uppercase;">Threats</strong>
+                  Incumbents with compliance legal credibility; testing platform acquisitions/consolidation.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 6 of 9</span>
+            <span>Strategic Framework</span>
+          </div>
+        </div>
+
+        <!-- Slide 7: Winning the Whitespace -->
+        <div class="slide-card" id="slide-7">
+          <header class="slide-header">
+            <span class="slide-label">The Battleground</span>
+            <span class="slide-branding">BrowserStack A11y</span>
+          </header>
+          <div class="slide-body">
+            <h2 class="slide-title">6. The Battleground: The "Whitespace"</h2>
+            <div class="slide-layout-columns" style="align-items: flex-start;">
+              <div>
+                <p class="slide-text" style="font-size: 1.1rem; color: var(--text-primary); font-weight: 500; margin-bottom: 1rem;">
+                  The gap between discovering an issue and fixing it.
+                </p>
+                <p class="slide-text" style="font-size: 0.95rem; margin-bottom: 0.75rem;">
+                  Pure-play compliance tools identify errors but fail to remediate them. BrowserStack owns this because:
+                </p>
+                <ul class="slide-bullet-list" style="font-size: 0.95rem;">
+                  <li><strong>Shift-Left Quality Gates:</strong> Blocks broken code pre-deployment in pipelines.</li>
+                  <li><strong>Code-Level Diagnostic Insights:</strong> Pinpoints the failing React/HTML component on the device screen.</li>
+                </ul>
+              </div>
+              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.25rem; font-family: monospace; font-size: 0.8rem;">
+                <span style="color: #64748b;">// Remediation recommendation</span><br>
+                <span style="color: #ef4444;">- &lt;img src="hero.jpg"&gt;</span><br>
+                <span style="color: #10b981;">+ &lt;img src="hero.jpg" alt="Strategic Plan"&gt;</span><br><br>
+                <div style="font-size: 0.75rem; color: var(--brand-blue); text-align: right; margin-top: 0.5rem;">[AI Auto-Remediated]</div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 7 of 9</span>
+            <span>Code-Level Action</span>
+          </div>
+        </div>
+
+        <!-- Slide 8: The Path Forward -->
+        <div class="slide-card" id="slide-8">
+          <header class="slide-header">
+            <span class="slide-label">The Strategy</span>
+            <span class="slide-branding">BrowserStack A11y</span>
+          </header>
+          <div class="slide-body">
+            <h2 class="slide-title">7. The Path Forward: Developer-First Wedge</h2>
+            <div class="slide-layout-columns" style="grid-template-columns: 1fr 1fr; align-items: start;">
+              <div>
+                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
+                  Integrated Product Layer
+                </p>
+                <p class="slide-text" style="font-size: 0.95rem; margin-bottom: 1.25rem;">
+                  Deliver accessibility checks as an adjacent layer in current browser clouds rather than building a standalone silo.
+                </p>
+                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
+                  CI/CD Gate Dominance
+                </p>
+                <p class="slide-text" style="font-size: 0.95rem;">
+                  Allow release leads to set automated health-gate standards inside Jenkins / GitHub pipelines.
+                </p>
+              </div>
+              <div>
+                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
+                  Real Device Screen Reader Testing
+                </p>
+                <p class="slide-text" style="font-size: 0.95rem; margin-bottom: 1.25rem;">
+                  Own high-fidelity desktop and mobile device interactive validations (NVDA, JAWS, VoiceOver).
+                </p>
+                <p class="slide-text" style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
+                  AI-Assisted Remediation
+                </p>
+                <p class="slide-text" style="font-size: 0.95rem;">
+                  Bridge the whitespace by providing automatic PR code fixes directly in the developer logs.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 8 of 9</span>
+            <span>Strategic Wedge</span>
+          </div>
+        </div>
+
+        <!-- Slide 9: Sources -->
+        <div class="slide-card" id="slide-9">
+          <header class="slide-header">
+            <span class="slide-label">References</span>
+            <span class="slide-branding">BrowserStack A11y</span>
+          </header>
+          <div class="slide-body">
+            <h2 class="slide-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Strategic Sources & Citations</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.78rem; color: var(--text-secondary);">
+              <div>1. <strong>BrowserStack</strong>: Cross-Browser real-device infrastructure</div>
+              <div>2. <strong>BrowserStack</strong>: AI Era Platform Press Release</div>
+              <div>3. <strong>ThePrint</strong>: Comprehensive Test Platform highlights</div>
+              <div>4. <strong>Mordor Intelligence</strong>: Market Size & Growth to 2031</div>
+              <div>5. <strong>Straits Research</strong>: Market Size & Share reports</div>
+              <div>6. <strong>BarrierBreak</strong>: Selecting A11y platforms</div>
+              <div>7. <strong>Digital.ai</strong>: Why compliance alone fails</div>
+              <div>8. <strong>Deque Systems</strong>: axe automated audits</div>
+              <div>9. <strong>DevOps.com</strong>: Manual testing pipeline blockers</div>
+              <div>10. <strong>W3C</strong>: Web Content Accessibility Guidelines 2.2</div>
+              <div>11. <strong>Inviqa</strong>: Engineering solutions for a11y</div>
+              <div>12. <strong>Cerovac</strong>: Analyzing workflow gaps</div>
+            </div>
+            <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--brand-blue); font-weight: 600;">
+              Refer to strategy_document.md in the workspace for all 16 detailed citations.
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>Slide 9 of 9</span>
+            <span>Sources</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation & Dots Controls -->
+      <div class="presentation-controls">
+        <button class="nav-circle-btn" id="prev-slide-btn" onclick="changeSlide(-1)" aria-label="Previous slide">←</button>
+        
+        <div class="slide-progress-dots" id="dots-container">
+          <div class="progress-dot active" onclick="goToSlide(1)"></div>
+          <div class="progress-dot" onclick="goToSlide(2)"></div>
+          <div class="progress-dot" onclick="goToSlide(3)"></div>
+          <div class="progress-dot" onclick="goToSlide(4)"></div>
+          <div class="progress-dot" onclick="goToSlide(5)"></div>
+          <div class="progress-dot" onclick="goToSlide(6)"></div>
+          <div class="progress-dot" onclick="goToSlide(7)"></div>
+          <div class="progress-dot" onclick="goToSlide(8)"></div>
+          <div class="progress-dot" onclick="goToSlide(9)"></div>
+        </div>
+
+        <button class="nav-circle-btn" id="next-slide-btn" onclick="changeSlide(1)" aria-label="Next slide">→</button>
+      </div>
+
+      <div class="slide-counter" id="slide-num-label">1 / 9</div>
+      
+      <!-- Keyboard Help -->
+      <div class="keyboard-hint">
+        <span>Control:</span>
+        <span class="kbd-btn">←</span>
+        <span class="kbd-btn">→</span>
+        <span>/</span>
+        <span class="kbd-btn">Space</span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Navigation and View Switching Logic
+    function switchView(viewName) {
+      const docView = document.getElementById('document-view');
+      const pptView = document.getElementById('presentation-view');
+      const tabDoc = document.getElementById('tab-doc');
+      const tabPpt = document.getElementById('tab-ppt');
+      const btnPrint = document.getElementById('btn-print');
+
+      if (viewName === 'document') {
+        docView.classList.add('active');
+        pptView.classList.remove('active');
+        tabDoc.classList.add('active');
+        tabPpt.classList.remove('active');
+        btnPrint.innerHTML = `
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          Print Document (PDF)
+        `;
+      } else {
+        docView.classList.remove('active');
+        pptView.classList.add('active');
+        tabDoc.classList.remove('active');
+        tabPpt.classList.add('active');
+        btnPrint.innerHTML = `
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          Print Slide Deck (PDF)
+        `;
+      }
+    }
+
+    // Presentation Slide Logic
+    let currentSlide = 1;
+    const totalSlides = 9;
+
+    function goToSlide(slideNum) {
+      if (slideNum < 1 || slideNum > totalSlides) return;
+      
+      // Update Slide Cards
+      document.querySelectorAll('.slide-card').forEach(card => {
+        card.classList.remove('active');
+      });
+      
+      const targetCard = document.getElementById(`slide-${slideNum}`);
+      if (targetCard) {
+        targetCard.classList.add('active');
+      }
+
+      // Update Navigation Dots
+      document.querySelectorAll('.progress-dot').forEach((dot, index) => {
+        if (index + 1 === slideNum) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      // Update Slide Counter
+      document.getElementById('slide-num-label').innerText = `${slideNum} / ${totalSlides}`;
+      currentSlide = slideNum;
+    }
+
+    function changeSlide(direction) {
+      let target = currentSlide + direction;
+      if (target < 1) target = 1;
+      if (target > totalSlides) target = totalSlides;
+      goToSlide(target);
+    }
+
+    // Keyboard Listeners
+    document.addEventListener('keydown', (e) => {
+      const pptActive = document.getElementById('presentation-view').classList.contains('active');
+      if (!pptActive) return;
+
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        changeSlide(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        changeSlide(-1);
+      }
+    });
+
+    // Sidebar active links highlights on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.doc-section');
+      const tocItems = {
+        'doc-title': document.getElementById('toc-intro'),
+        'sec-hook': document.getElementById('toc-hook'),
+        'sec-thesis': document.getElementById('toc-thesis'),
+        'sec-market': document.getElementById('toc-market'),
+        'sec-lens': document.getElementById('toc-lens'),
+        'sec-swot': document.getElementById('toc-swot'),
+        'sec-whitespace': document.getElementById('toc-whitespace'),
+        'sec-path': document.getElementById('toc-path'),
+        'sec-sources': document.getElementById('toc-sources')
+      };
+
+      const docView = document.getElementById('document-view');
+
+      window.addEventListener('scroll', () => {
+        if (!docView.classList.contains('active')) return;
+
+        let currentActiveSectionId = 'doc-title';
+        const scrollPosition = window.scrollY + 150;
+
+        sections.forEach(section => {
+          if (scrollPosition >= section.offsetTop) {
+            currentActiveSectionId = section.getAttribute('id');
+          }
+        });
+
+        // Check cover title scroll position
+        const coverTitle = document.getElementById('doc-title');
+        if (scrollPosition < coverTitle.offsetTop + coverTitle.offsetHeight) {
+          currentActiveSectionId = 'doc-title';
+        }
+
+        // Apply active class
+        Object.keys(tocItems).forEach(id => {
+          if (id === currentActiveSectionId) {
+            tocItems[id].classList.add('active');
+          } else {
+            tocItems[id].classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
