@@ -66,27 +66,7 @@ By changing the perception of accessibility from a "compliance chore" to a "prod
 
 ---
 
-### 3. The Thesis: Why BrowserStack?
-
-BrowserStack is uniquely positioned to redefine the accessibility market. We do not need to build credibility from scratch; we can extend our existing infrastructure moat.
-
-```
-+-------------------------------------------------------------------+
-|                     THE BROWSERSTACK ADVANTAGE                    |
-+------------------------------------+------------------------------+
-| 7M+ Developer Footprint            | Standardized testing engine  |
-| 3,500+ Real Devices & Browsers     | Native CI/CD integrations    |
-+------------------------------------+------------------------------+
-```
-
-Our competitive advantages center around three core pillars:
-1. **Unmatched Scale & Footprint**: We have an active developer community of over **7 million users** who already trust BrowserStack for their cross-browser and cross-platform testing needs.
-2. **Real-Device Testing Moat**: Digital accessibility cannot be verified by synthetic emulators alone. Screen readers, keyboard navigation, and touch targets require validation on **real physical hardware**. BrowserStack’s fleet of 3,500+ real device/browser combinations provides the most authentic testing environment available.
-3. **Seamless Integration**: Instead of asking teams to adopt a new platform, we integrate accessibility checks directly into their existing test suites (Selenium, Cypress, Playwright, Puppeteer) and CI/CD pipelines, making accessibility verification as natural as a unit test.
-
----
-
-### 4. The Market Story: From Audit to Automation
+### 3. The Market Story: From Audit to Automation
 
 The digital accessibility market is experiencing a structural shift, moving away from slow, manual external audits toward continuous, automated, developer-led monitoring.
 
@@ -118,6 +98,26 @@ The true growth driver is not regulatory pressure alone, but the **technological
 
 ---
 
+### 4. The Thesis: Why BrowserStack?
+
+BrowserStack is uniquely positioned to redefine the accessibility market. We do not need to build credibility from scratch; we can extend our existing infrastructure moat.
+
+```
++-------------------------------------------------------------------+
+|                     THE BROWSERSTACK ADVANTAGE                    |
++------------------------------------+------------------------------+
+| 7M+ Developer Footprint            | Standardized testing engine  |
+| 3,500+ Real Devices & Browsers     | Native CI/CD integrations    |
++------------------------------------+------------------------------+
+```
+
+Our competitive advantages center around three core pillars:
+1. **Unmatched Scale & Footprint**: We have an active developer community of over **7 million users** who already trust BrowserStack for their cross-browser and cross-platform testing needs.
+2. **Real-Device Testing Moat**: Digital accessibility cannot be verified by synthetic emulators alone. Screen readers, keyboard navigation, and touch targets require validation on **real physical hardware**. BrowserStack’s fleet of 3,500+ real device/browser combinations provides the most authentic testing environment available.
+3. **Seamless Integration**: Instead of asking teams to adopt a new platform, we integrate accessibility checks directly into their existing test suites (Selenium, Cypress, Playwright, Puppeteer) and CI/CD pipelines, making accessibility verification as natural as a unit test.
+
+---
+
 ### 5. The Strategic Lens: Navigating the Need
 
 To win, BrowserStack must understand the core tension facing our enterprise customers:
@@ -138,7 +138,18 @@ Our goal is to turn our user base into accessibility advocates by showing them t
 
 ---
 
-### 6. The Battleground: Winning the Whitespace
+### 6. SWOT Analysis
+
+| Strategic Dimension | Internal Factors | External Factors |
+| :--- | :--- | :--- |
+| **Strengths** | <ul><li>**7M+ Developer Footprint**: Immediate distribution channels.</li><li>**Real-Device Infrastructure**: Unmatched physical testing fleet.</li><li>**CI/CD Integrations**: Deep placement in existing release pipelines.</li></ul> | |
+| **Weaknesses** | <ul><li>**Limited Compliance DNA**: Historically focused on cross-browser QA rather than legal/WCAG advisory services.</li><li>**New Category Entry**: Lack of brand recognition among Chief Compliance/Legal Officers.</li></ul> | |
+| **Opportunities** | | <ul><li>**High Shift-Left Demand**: Teams moving testing to pull-request gates.</li><li>**Fragmented Whitespace**: No clear leader in the developer-workflow segment.</li><li>**AI-Assisted Remediation**: Leveraging telemetry and code models to auto-fix DOM bugs.</li></ul> |
+| **Threats** | | <ul><li>**Pure-Play Vendors**: Incumbents (Deque, Level Access) have long-standing legal credibility and relationships with compliance officers.</li><li>**Platform Consolidation**: Major testing platforms adding basic, free accessibility extensions (e.g., automated Axe cores) to capture market share.</li></ul> |
+
+---
+
+### 7. The Battleground: Winning the Whitespace
 
 The critical competitive battleground is the **"Whitespace"**—the operational gap between discovering an accessibility issue and actually fixing it.
 
@@ -155,17 +166,6 @@ While established pure-play accessibility vendors possess deep legal credibility
 * Framework-aware diagnostic data.
 
 BrowserStack wins where incumbents fail by providing **code-level remediation context**. By analyzing the DOM tree, CSS styles, and framework components directly on our devices, we can translate a WCAG failure into a prioritized ticket with code suggestions, transforming a legal finding into an actionable developer task.
-
----
-
-### 7. SWOT Analysis
-
-| Strategic Dimension | Internal Factors | External Factors |
-| :--- | :--- | :--- |
-| **Strengths** | <ul><li>**7M+ Developer Footprint**: Immediate distribution channels.</li><li>**Real-Device Infrastructure**: Unmatched physical testing fleet.</li><li>**CI/CD Integrations**: Deep placement in existing release pipelines.</li></ul> | |
-| **Weaknesses** | <ul><li>**Limited Compliance DNA**: Historically focused on cross-browser QA rather than legal/WCAG advisory services.</li><li>**New Category Entry**: Lack of brand recognition among Chief Compliance/Legal Officers.</li></ul> | |
-| **Opportunities** | | <ul><li>**High Shift-Left Demand**: Teams moving testing to pull-request gates.</li><li>**Fragmented Whitespace**: No clear leader in the developer-workflow segment.</li><li>**AI-Assisted Remediation**: Leveraging telemetry and code models to auto-fix DOM bugs.</li></ul> |
-| **Threats** | | <ul><li>**Pure-Play Vendors**: Incumbents (Deque, Level Access) have long-standing legal credibility and relationships with compliance officers.</li><li>**Platform Consolidation**: Major testing platforms adding basic, free accessibility extensions (e.g., automated Axe cores) to capture market share.</li></ul> |
 
 ---
 
