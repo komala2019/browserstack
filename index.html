@@ -930,9 +930,12 @@
       .doc-sidebar {
         display: none;
       }
-      .slide-layout-columns, .slide-layout-split, .swot-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+      .slide-layout-columns, 
+      .slide-layout-split, 
+      .swot-container,
+      .slide-card div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
       }
       .slide-card {
         padding: 2rem;
@@ -1077,7 +1080,9 @@
         font-size: 1.4rem !important;
       }
 
-      .slide-layout-columns, .slide-layout-split {
+      .slide-layout-columns, 
+      .slide-layout-split,
+      .slide-card div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
         gap: 1.5rem !important;
       }
@@ -1277,11 +1282,7 @@
           <h1 class="doc-main-title">THE DEVELOPER-FIRST WEDGE:</h1>
           <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--brand-blue) 0%, var(--accent-purple) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Transforming Digital Accessibility</h2>
           
-          <div class="doc-meta">
-            <span><strong>Author:</strong> Strategic Product Initiatives</span>
-            <span><strong>Target Release:</strong> FY 2026 Strategy</span>
-            <span><strong>Target Audience:</strong> Executive Leadership</span>
-          </div>
+
         </header>
 
         <p class="lead-paragraph">
